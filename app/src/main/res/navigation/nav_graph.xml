@@ -19,6 +19,11 @@
         android:name="com.example.ryder.ui.main.LoginFragment"
         android:label="login screen"
         tools:layout="@layout/fragment_login"/>
+    <fragment
+        android:id="@+id/cabsFragment"
+        android:name="com.example.ryder.ui.main.cabs.CabsFragment"
+        android:label="fragment_cabs"
+        tools:layout="@layout/fragment_cabs" />
 
 
 </navigation>

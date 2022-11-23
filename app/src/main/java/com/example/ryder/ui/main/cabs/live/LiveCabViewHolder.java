@@ -1,4 +1,4 @@
-package com.example.ryder.ui.main.cabs;
+package com.example.ryder.ui.main.cabs.live;
 
 import android.view.View;
 import android.widget.Button;
@@ -25,14 +25,14 @@ public class LiveCabViewHolder extends RecyclerView.ViewHolder {
     public LiveCabViewHolder(View itemView) {
         super(itemView);
 
-        from = itemView.findViewById(R.id.from_text);
-        to = itemView.findViewById(R.id.to_text);
-        timeText = itemView.findViewById(R.id.time_text);
+        from = itemView.findViewById(R.id.request_from_text);
+        to = itemView.findViewById(R.id.request_to_text);
+        timeText = itemView.findViewById(R.id.request_text);
         driver_name = itemView.findViewById(R.id.driver_name_text);
         vehicle = itemView.findViewById(R.id.vehicle_number_text);
         fare_text = itemView.findViewById(R.id.fare_text);
         driverAvatar = itemView.findViewById(R.id.circular_avatar);
-        joinButton = itemView.findViewById(R.id.join_button);
+        joinButton = itemView.findViewById(R.id.request_join_button);
         view = itemView;
 
     }
