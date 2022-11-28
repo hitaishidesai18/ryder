@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.example.ryderr.ui.main.SplashScreenFragment"
+        android:name="com.example.ryderr.ui.main.login.SplashScreenFragment"
         android:label="splash screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.ryderr.ui.main.LoginFragment"
+        android:name="com.example.ryderr.ui.main.login.LoginFragment"
         android:label="login screen"
         tools:layout="@layout/fragment_login">
         <action
@@ -28,12 +28,12 @@
     </fragment>
     <fragment
         android:id="@+id/cabsFragment"
-        android:name="com.example.ryderr.ui.main.cabs.CabsFragment"
+        android:name="com.example.ryderr.ui.main.studentHome.live.CabsFragment"
         android:label="fragment_cabs"
         tools:layout="@layout/fragment_cabs" />
     <fragment
         android:id="@+id/liveCabs"
-        android:name="com.example.ryderr.ui.main.cabs.live.LiveCabsFragment"
+        android:name="com.example.ryderr.ui.main.studentHome.live.LiveCabsFragment"
         android:label="live cabs frag"
         tools:layout="@layout/fragment_live_cabs" />
 
