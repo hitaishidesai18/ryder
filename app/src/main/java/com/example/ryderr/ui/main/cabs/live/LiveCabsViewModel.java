@@ -1,5 +1,7 @@
 package com.example.ryderr.ui.main.cabs.live;
 
+import com.example.ryderr.models.LiveCab;
+
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;

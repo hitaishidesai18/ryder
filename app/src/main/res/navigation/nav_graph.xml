@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_loginFragment_to_liveCabs"
             app:destination="@id/liveCabs" />
+        <action
+            android:id="@+id/action_loginFragment_to_cabsFragment"
+            app:destination="@id/cabsFragment" />
     </fragment>
     <fragment
         android:id="@+id/cabsFragment"

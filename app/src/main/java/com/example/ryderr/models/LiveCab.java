@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.cabs.live;
+package com.example.ryderr.models;
 
 import java.sql.Time;
 import java.util.ArrayList;

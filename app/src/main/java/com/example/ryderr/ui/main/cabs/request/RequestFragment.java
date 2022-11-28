@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ryderr.R;
+import com.example.ryderr.models.RequestCab;
 
 
 import java.util.ArrayList;

@@ -124,7 +124,7 @@ public class LoginFragment extends Fragment {
     private void updateUI(FirebaseUser user){
         String name = user.getDisplayName();
         Toast.makeText(getContext(), name, Toast.LENGTH_SHORT).show();
-        Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_liveCabs);
+        Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_cabsFragment);
 
     }
     private void signIn(GoogleSignInAccount account){
