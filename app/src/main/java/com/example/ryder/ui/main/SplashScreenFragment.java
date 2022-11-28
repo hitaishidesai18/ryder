@@ -30,7 +30,6 @@ public class SplashScreenFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         model  = new ViewModelProvider(this).get(SplashScreenViewModel.class);
     }

@@ -18,12 +18,21 @@
         android:id="@+id/loginFragment"
         android:name="com.example.ryder.ui.main.LoginFragment"
         android:label="login screen"
-        tools:layout="@layout/fragment_login"/>
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_liveCabs"
+            app:destination="@id/liveCabs" />
+    </fragment>
     <fragment
         android:id="@+id/cabsFragment"
         android:name="com.example.ryder.ui.main.cabs.CabsFragment"
         android:label="fragment_cabs"
         tools:layout="@layout/fragment_cabs" />
+    <fragment
+        android:id="@+id/liveCabs"
+        android:name="com.example.ryder.ui.main.cabs.live.LiveCabsFragment"
+        android:label="live cabs frag"
+        tools:layout="@layout/fragment_live_cabs" />
 
 
 </navigation>
