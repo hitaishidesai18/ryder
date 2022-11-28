@@ -1,14 +1,12 @@
-package com.example.ryder.ui.main;
+package com.example.ryderr.ui.main;
 
 import android.os.Handler;
 import android.os.Looper;
 
-import com.example.ryder.R;
+import com.example.ryderr.R;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.navigation.Navigation;
 
 public class SplashScreenViewModel extends ViewModel {
     private static final long SPLASH_DISPLAY_LENGTH = 2500;

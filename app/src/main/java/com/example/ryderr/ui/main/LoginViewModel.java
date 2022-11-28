@@ -1,6 +1,4 @@
-package com.example.ryder.ui.main;
-
-import android.util.Log;
+package com.example.ryderr.ui.main;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

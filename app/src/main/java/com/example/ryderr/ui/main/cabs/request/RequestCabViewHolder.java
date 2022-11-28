@@ -1,15 +1,12 @@
-package com.example.ryder.ui.main.cabs.request;
+package com.example.ryderr.ui.main.cabs.request;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ryder.R;
-
-import de.hdodenhof.circleimageview.CircleImageView;
+import com.example.ryderr.R;
 
 public class RequestCabViewHolder extends RecyclerView.ViewHolder{
 

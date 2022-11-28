@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.ryder">
+    package="com.example.ryderr">
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -16,7 +16,7 @@
         tools:targetApi="31">
         <activity
             android:exported="true"
-            android:name=".MainActivity">
+            android:name="com.example.ryderr.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

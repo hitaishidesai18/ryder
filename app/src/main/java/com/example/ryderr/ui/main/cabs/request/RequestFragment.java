@@ -1,4 +1,4 @@
-package com.example.ryder.ui.main.cabs.live;
+package com.example.ryderr.ui.main.cabs.request;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,36 +14,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.ryder.MainActivity;
-import com.example.ryder.R;
+import com.example.ryderr.R;
+
 
 import java.util.ArrayList;
 
-public class LiveCabsFragment extends Fragment {
+public class RequestFragment extends Fragment {
 
-    private LiveCabsViewModel mViewModel;
+    private RequestViewModel mViewModel;
     RecyclerView recyclerView;
-    ArrayList<LiveCab> list;
+    ArrayList<RequestCab> list;
 
-    public static LiveCabsFragment newInstance() {
-        return new LiveCabsFragment();
+    public static RequestFragment newInstance() {
+        return new RequestFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_live_cabs, container, false);
+        return inflater.inflate(R.layout.fragment_request, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(LiveCabsViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(RequestViewModel.class);
         // TODO: Use the ViewModel
 
-        recyclerView = getView().findViewById(R.id.recycler_view);
+        recyclerView = getView().findViewById(R.id.request_recycler);
         list = mViewModel.populate();
-        LiveCabListAdapter adapter = new LiveCabListAdapter(list, getContext());
+        RequestCabListAdapter adapter = new RequestCabListAdapter(list, getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(getContext()));

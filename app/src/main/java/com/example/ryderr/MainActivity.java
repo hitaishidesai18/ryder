@@ -1,13 +1,10 @@
-package com.example.ryder;
+package com.example.ryderr;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
-
-import com.example.ryder.ui.main.LoginFragment;
-import com.example.ryder.ui.main.SplashScreenFragment;
 
 public class MainActivity extends AppCompatActivity {
 

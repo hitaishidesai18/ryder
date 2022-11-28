@@ -1,11 +1,11 @@
-package com.example.ryder.ui.main.cabs.live;
+package com.example.ryderr.ui.main.cabs.live;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ryder.R;
+import com.example.ryderr.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

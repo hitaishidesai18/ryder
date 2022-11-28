@@ -1,4 +1,4 @@
-package com.example.ryder.ui.main.cabs;
+package com.example.ryderr.ui.main.cabs;
 
 import androidx.lifecycle.ViewModel;
 

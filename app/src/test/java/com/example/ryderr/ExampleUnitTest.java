@@ -1,4 +1,4 @@
-package com.example.ryder;
+package com.example.ryderr;
 
 import org.junit.Test;
 

@@ -1,8 +1,6 @@
-package com.example.ryder.ui.main.cabs.request;
+package com.example.ryderr.ui.main.cabs.request;
 
 import androidx.lifecycle.ViewModel;
-
-import com.example.ryder.ui.main.cabs.request.RequestCab;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.ryder.ui.main.cabs;
+package com.example.ryderr.ui.main.cabs;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
@@ -9,8 +9,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -18,9 +16,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.ryder.R;
-import com.example.ryder.ui.main.cabs.live.LiveCabsFragment;
-import com.example.ryder.ui.main.cabs.request.RequestFragment;
+import com.example.ryderr.R;
+import com.example.ryderr.ui.main.cabs.live.LiveCabsFragment;
+import com.example.ryderr.ui.main.cabs.request.RequestFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 

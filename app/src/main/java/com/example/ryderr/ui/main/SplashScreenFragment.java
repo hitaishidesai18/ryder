@@ -1,4 +1,4 @@
-package com.example.ryder.ui.main;
+package com.example.ryderr.ui.main;
 
 import android.os.Bundle;
 
@@ -6,17 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.ryder.R;
+import com.example.ryderr.R;
 
 
 public class SplashScreenFragment extends Fragment {
