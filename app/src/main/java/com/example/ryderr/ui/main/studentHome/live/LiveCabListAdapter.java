@@ -9,17 +9,17 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ryderr.R;
-import com.example.ryderr.models.LiveCab;
+import com.example.ryderr.models.Cab;
 
 import java.util.Collections;
 import java.util.List;
 
 public class LiveCabListAdapter extends RecyclerView.Adapter<LiveCabViewHolder> {
 
-    List<LiveCab> list = Collections.emptyList();
+    List<Cab> list = Collections.emptyList();
     Context context;
 
-    public LiveCabListAdapter(List<LiveCab> list, Context context) {
+    public LiveCabListAdapter(List<Cab> list, Context context) {
         this.list = list;
         this.context = context;
     }

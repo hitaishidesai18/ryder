@@ -50,6 +50,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
+        mViewModel = new LoginViewModel();
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
@@ -66,6 +67,7 @@ public class LoginFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
 
         Button studentLogin = view.findViewById(R.id.student_login_button);
+        Button driverlogin =view.findViewById(R.id.driver_login_btn);
         studentLogin.setOnClickListener(view1 -> {
             try{
                 Intent intent = googleSignInClient.getSignInIntent();
@@ -74,6 +76,9 @@ public class LoginFragment extends Fragment {
                 e.printStackTrace();
             }
         });
+        driverlogin.setOnClickListener(view1 -> {
+        });
+
 
     }
 
@@ -109,6 +114,7 @@ public class LoginFragment extends Fragment {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            mViewModel.addUser(user);
                             updateUI(user);
                             } else {
                             // If sign in fails, display a message to the user.

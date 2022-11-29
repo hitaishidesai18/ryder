@@ -1,12 +1,12 @@
 package com.example.ryderr.models;
 
 public class Request {
-    String name;
-    String pickup;
-    String destination;
-    String dateTime;
-    String driverName;
-    String cost;
-    String space;
-    String confirmedPassengers;
+    public String name;
+    public String pickup;
+    public String destination;
+    public String dateTime;
+    public String driverName;
+    public String cost;
+    public String space;
+    public String confirmedPassengers;
 }
