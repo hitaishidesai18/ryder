@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.1" />
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/drawable/input_message_edit_text.xml" value="0.183" />
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/chat_message_view.xml" value="0.17447916666666666" />
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_chat.xml" value="0.14130434782608695" />
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_login.xml" value="0.14130434782608695" />
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_splash_screen.xml" value="0.14130434782608695" />
         <entry key="..\:/cs4_1/sdpd/Ryder/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/cs4_1/sdpd/Ryder/app/src/main/res/layout/fragment_login.xml" value="0.10989583333333333" />
         <entry key="..\:/cs4_1/sdpd/Ryder/app/src/main/res/layout/fragment_splash_screen.xml" value="0.10989583333333333" />
