@@ -17,8 +17,12 @@
         <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/request_cab_card.xml" value="0.2734375" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/mipmap-anydpi-v26/avatar.xml" value="0.137" />
         <entry key="..\:/cs4_1/ryder/app/src/main/res/layout-v31/fragment_add_request.xml" value="0.10885416666666667" />
+        <entry key="..\:/cs4_1/ryder/app/src/main/res/layout/chat_message_view.xml" value="0.1" />
         <entry key="..\:/cs4_1/ryder/app/src/main/res/layout/fragment_add_request.xml" value="0.2" />
         <entry key="..\:/cs4_1/ryder/app/src/main/res/layout/fragment_cabs.xml" value="0.1" />
+        <entry key="..\:/cs4_1/ryder/app/src/main/res/layout/fragment_chat.xml" value="0.1" />
+        <entry key="..\:/cs4_1/ryder/app/src/main/res/layout/fragment_driver.xml" value="0.1766304347826087" />
+        <entry key="..\:/cs4_1/ryder/app/src/main/res/layout/fragment_driver_profile.xml" value="0.13677536231884058" />
         <entry key="..\:/cs4_1/ryder/app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="..\:/cs4_1/ryder/app/src/main/res/layout/fragment_request.xml" value="0.25" />
         <entry key="..\:/cs4_1/ryder/app/src/main/res/layout/fragment_request_details.xml" value="0.16799999999999998" />
