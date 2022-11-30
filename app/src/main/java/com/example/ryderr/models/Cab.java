@@ -40,6 +40,10 @@ public class Cab {
 
 
 
+    public String getFareText(){
+        int fare = getFare();
+        return Integer.toString(fare);
+    }
     public String getLive_cab_id() {
         return live_cab_id;
     }

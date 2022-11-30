@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.example.ryderr.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -16,6 +17,9 @@ public class SplashScreenViewModel extends ViewModel {
         if (navigateScreen == null) {
             navigateScreen = new MutableLiveData<Integer>(0);
         }
+
+
+
         return navigateScreen;
     }
 

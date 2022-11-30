@@ -44,8 +44,8 @@ public class LoginViewModel extends ViewModel {
 //    public void addCab(){
 //        final long[] cabId = {0};
 //        mDatabase = FirebaseDatabase.getInstance().getReference();
-//        Cab cab1 = new Cab("3",null,5,0,500,false,"Yoyo", "TN08XX9999", "BITS", "Parade Ground","7:00pm");
-//        mDatabase.child("cabs").child("3").setValue(cab1);
+//        Cab cab1 = new Cab("c1",null,5,0,500,false,"Ravu", "TN08XX9999", "BITS", "Alankrita","3:00pm");
+//        mDatabase.child("cabs").child("c1").setValue(cab1);
 //    }
     public void updateStatus(FirebaseUser firebaseUser){
 

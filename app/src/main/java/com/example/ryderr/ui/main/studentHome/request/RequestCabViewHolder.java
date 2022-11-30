@@ -27,7 +27,7 @@ public class RequestCabViewHolder extends RecyclerView.ViewHolder{
         from = itemView.findViewById(R.id.request_from_text);
         to = itemView.findViewById(R.id.request_to_text);
         timeText = itemView.findViewById(R.id.request_time_text);
-        fare_text = itemView.findViewById(R.id.fare_text);
+        fare_text = itemView.findViewById(R.id.cab_fare_text);
         request_name = itemView.findViewById(R.id.request_text);
         joinButton = itemView.findViewById(R.id.request_join_button);
         view = itemView;

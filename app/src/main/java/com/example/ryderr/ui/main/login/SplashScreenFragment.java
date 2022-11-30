@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ryderr.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class SplashScreenFragment extends Fragment {
@@ -28,6 +29,7 @@ public class SplashScreenFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         model  = new ViewModelProvider(this).get(SplashScreenViewModel.class);
+
     }
 
     @Override
@@ -41,6 +43,11 @@ public class SplashScreenFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         model.loadApp();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        if(mAuth.getCurrentUser()!=null)
+            Navigation.findNavController(view).navigate(R.id.action_splashScreen_to_cabsFragment);
+
+
         model.navigateScreen.observe(getViewLifecycleOwner(), navigateScreenOption -> {
             if(navigateScreenOption==1)
                 Navigation.findNavController(view).navigate(R.id.action_splashScreen_to_loginFragment);

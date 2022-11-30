@@ -38,8 +38,8 @@ public class LiveCabsViewModel extends ViewModel {
 
 
         DatabaseReference liveCabRef = mDatabase.child("cabs");
-        Query queryRef = liveCabRef.orderByChild("live").equalTo(true);
-        queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+       // Query queryRef = liveCabRef.orderByChild("live").equalTo(true);
+        liveCabRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -56,7 +56,8 @@ public class LiveCabsViewModel extends ViewModel {
                     cabsList = new ArrayList<Cab>();
 
                 }
-
+//                GenericTypeIndicator<HashMap<String,Cab>> t=  new GenericTypeIndicator<HashMap<String,Cab>>() { };
+//                ArrayList<Cab> cabsList = dataSnapshot.getValue(t);
             studentLiveCabs.setValue(cabsList);
 
             }

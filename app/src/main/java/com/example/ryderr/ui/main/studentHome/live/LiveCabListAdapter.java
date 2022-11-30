@@ -39,13 +39,30 @@ public class LiveCabListAdapter extends RecyclerView.Adapter<LiveCabViewHolder> 
     public void onBindViewHolder(LiveCabViewHolder holder, int position) {
 
         final int index = holder.getAdapterPosition();
-        holder.view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+
+        Cab cab = list.get(position);
+        holder.from.setText(cab.getFrom_location());
+        holder.to.setText(cab.getTo_location());
+        holder.timeText.setText(cab.getDeparture_time());
+        holder.driver_name.setText(cab.getDriver_name());
+        holder.vehicle.setText(cab.getVehicle_number());
+        holder.fare_text.setText(cab.getFareText());
+        int capacity = cab.getCapacity();
+        int count_riders = cab.getCount_riders();
+        String progressText = count_riders + "/" + capacity;
+        holder.cabProgressText.setText(progressText);
+
+        holder.cabProgressBar.setMax(capacity);
+        holder.cabProgressBar.setProgress(count_riders);
+
+//        holder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show();
+//                //go to details
+//            }
+//        });
+   }
 
     @Override
     public int getItemCount() {

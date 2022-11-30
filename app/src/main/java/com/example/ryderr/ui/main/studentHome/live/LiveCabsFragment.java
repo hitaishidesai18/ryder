@@ -53,17 +53,22 @@ public class LiveCabsFragment extends Fragment {
         recyclerView = getView().findViewById(R.id.recycler_view);
         list = mViewModel.populate();
         LiveCabListAdapter adapter = new LiveCabListAdapter(list, getContext());
+        //recyclerView.setAdapter(adapter);
+
         Observer<ArrayList<Cab>> observer = new Observer<ArrayList<Cab>>() {
             @Override
             public void onChanged(ArrayList<Cab> cabs) {
-                adapter.list = cabs;
+                list = cabs;
+                LiveCabListAdapter adapter = new LiveCabListAdapter(list, getContext());
                 recyclerView.setAdapter(adapter);
-                recyclerView.setLayoutManager(
-                        new LinearLayoutManager(getContext()));
+
             }
         };
 
         mViewModel.getStudentLiveCabs().observe(getViewLifecycleOwner(), observer);
+       // recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(
+                new LinearLayoutManager(getContext()));
 
     }
 
