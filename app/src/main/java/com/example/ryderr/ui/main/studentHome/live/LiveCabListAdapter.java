@@ -18,6 +18,7 @@ public class LiveCabListAdapter extends RecyclerView.Adapter<LiveCabViewHolder> 
 
     List<Cab> list = Collections.emptyList();
     Context context;
+    LiveCabsViewModel cabViewModel;
 
     public LiveCabListAdapter(List<Cab> list, Context context) {
         this.list = list;
@@ -28,6 +29,7 @@ public class LiveCabListAdapter extends RecyclerView.Adapter<LiveCabViewHolder> 
     public LiveCabViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
+        cabViewModel = new LiveCabsViewModel();
 
         View view = inflater.inflate(R.layout.live_cab_card, parent, false);
         LiveCabViewHolder viewHolder = new LiveCabViewHolder(view);
@@ -51,9 +53,14 @@ public class LiveCabListAdapter extends RecyclerView.Adapter<LiveCabViewHolder> 
         int count_riders = cab.getCount_riders();
         String progressText = count_riders + "/" + capacity;
         holder.cabProgressText.setText(progressText);
-
         holder.cabProgressBar.setMax(capacity);
         holder.cabProgressBar.setProgress(count_riders);
+
+        holder.joinButton.setOnClickListener(view -> {
+            cabViewModel.joinCab(cab.getLive_cab_id());
+            holder.joinButton.setVisibility(View.GONE);
+            holder.seeDetailBtn.setVisibility(View.VISIBLE);
+        });
 
 //        holder.setOnClickListener(new View.OnClickListener() {
 //            @Override

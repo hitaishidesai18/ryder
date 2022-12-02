@@ -20,6 +20,7 @@ public class LiveCabViewHolder extends RecyclerView.ViewHolder {
     TextView fare_text;
     CircleImageView driverAvatar;
     Button joinButton;
+    Button seeDetailBtn;
     ProgressBar cabProgressBar;
     TextView cabProgressText;
 
@@ -34,6 +35,7 @@ public class LiveCabViewHolder extends RecyclerView.ViewHolder {
         vehicle = itemView.findViewById(R.id.cab_vehicle_number_text);
         fare_text = itemView.findViewById(R.id.cab_fare_text);
         joinButton = itemView.findViewById(R.id.cab_join_button);
+        seeDetailBtn = itemView.findViewById(R.id.cab_see_detail_button);
         cabProgressBar = itemView.findViewById(R.id.cab_linearProgressIndicator);
         cabProgressText = itemView.findViewById(R.id.cab_progress_text);
 

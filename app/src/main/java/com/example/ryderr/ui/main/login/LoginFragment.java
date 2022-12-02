@@ -2,12 +2,6 @@ package com.example.ryderr.ui.main.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,14 +10,15 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.ryderr.R;
+import com.example.ryderr.models.Student;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -32,14 +27,23 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 public class LoginFragment extends Fragment {
 
     private static final int RC_SIGN_IN = 100;
+    private static final String TAG = "login fragment";
     private LoginViewModel mViewModel;
     private FirebaseAuth mAuth;
     private static final int SIGN_IN_REQUEST_CODE = 0;
     private GoogleSignInClient googleSignInClient;
+    private FirebaseFirestore db;
     View mView;
 
     public static LoginFragment newInstance() {
@@ -51,6 +55,7 @@ public class LoginFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
         mViewModel = new LoginViewModel();
+        db = FirebaseFirestore.getInstance();
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
@@ -73,6 +78,7 @@ public class LoginFragment extends Fragment {
                 Intent intent = googleSignInClient.getSignInIntent();
                 startActivityForResult(intent, RC_SIGN_IN);
             }catch (Exception e){
+
                 e.printStackTrace();
             }
         });
@@ -129,6 +135,21 @@ public class LoginFragment extends Fragment {
     }
     private void updateUI(FirebaseUser user){
         String name = user.getDisplayName();
+        Student student = new Student(user.getUid(), name, user.getEmail());
+        db.collection("students")
+                        .add(student).addOnSuccessListener(
+                        new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+
+                            }
+                        }) .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e(TAG, "Error adding document", e);
+                    }
+                });
         Toast.makeText(getContext(), name, Toast.LENGTH_SHORT).show();
         Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_cabsFragment);
 

@@ -16,7 +16,7 @@ public class Cab {
     String from_location;
     String to_location;
     String departure_time;
-    ArrayList<String> riders;
+    ArrayList<String> riders_ids;
 
     public Cab(String live_cab_id, String group_chat_id, int capacity, int count_riders,
             int fare, boolean live,
@@ -33,6 +33,7 @@ public class Cab {
         this.from_location = from_location;
         this.to_location = to_location;
         this.departure_time = departure_time;
+        riders_ids = new ArrayList<>();
     }
     public Cab() {
 
@@ -125,10 +126,10 @@ public class Cab {
     }
 
     public ArrayList<String> getRiders() {
-        return riders;
+        return riders_ids;
     }
 
-    public void setRiders(ArrayList<String> riders) {
-        this.riders = riders;
+    public void setRiders(ArrayList<String> riders_ids) {
+        this.riders_ids = riders_ids;
     }
 }
