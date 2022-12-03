@@ -41,7 +41,18 @@ public class RequestCabListAdapter extends RecyclerView.Adapter<RequestCabViewHo
     public void onBindViewHolder(RequestCabViewHolder holder, int position) {
 
         final int index = holder.getAdapterPosition();
-        holder.from.setText(list.get(position).getFrom_location());
+        Request request = list.get(position);
+        holder.from.setText(request.getFrom_location());
+        holder.to.setText(request.getTo_location());
+        holder.timeText.setText(request.getTime());
+
+        int capacity = request.getCapacity();
+        int count_riders = request.getCount_riders();
+        String progressText = count_riders + "/" + capacity;
+        holder.request_progress_text.setText(progressText);
+        holder.requestProgressBar.setMax(capacity);
+        holder.requestProgressBar.setProgress(count_riders);
+
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
