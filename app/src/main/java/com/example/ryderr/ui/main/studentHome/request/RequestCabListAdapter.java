@@ -18,6 +18,7 @@ public class RequestCabListAdapter extends RecyclerView.Adapter<RequestCabViewHo
     List<Request> list = Collections.emptyList();
     Context context;
 
+    RequestViewModel mRequestViewModel;
     public RequestCabListAdapter(List<Request> list, Context context) {
         this.list = list;
         this.context = context;
@@ -28,8 +29,10 @@ public class RequestCabListAdapter extends RecyclerView.Adapter<RequestCabViewHo
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
+        mRequestViewModel = new RequestViewModel();
         View view = inflater.inflate(R.layout.request_cab_card, parent, false);
         RequestCabViewHolder viewHolder = new RequestCabViewHolder(view);
+
 
         return viewHolder;
     }
@@ -38,6 +41,7 @@ public class RequestCabListAdapter extends RecyclerView.Adapter<RequestCabViewHo
     public void onBindViewHolder(RequestCabViewHolder holder, int position) {
 
         final int index = holder.getAdapterPosition();
+        holder.from.setText(list.get(position).getFrom_location());
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

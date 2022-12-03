@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -26,6 +27,7 @@ public class RequestFragment extends Fragment {
     private RequestViewModel mViewModel;
     RecyclerView recyclerView;
     ArrayList<Request> list;
+
 
     public static RequestFragment newInstance() {
         return new RequestFragment();
@@ -45,8 +47,18 @@ public class RequestFragment extends Fragment {
 
         recyclerView = getView().findViewById(R.id.request_recycler);
         list = mViewModel.populate();
-        RequestCabListAdapter adapter = new RequestCabListAdapter(list, getContext());
-        recyclerView.setAdapter(adapter);
+       // RequestCabListAdapter adapter = new RequestCabListAdapter(list, getContext());
+
+        Observer<ArrayList<Request>> observer = new Observer<ArrayList<Request>>() {
+            @Override
+            public void onChanged(ArrayList<Request> requests) {
+               // list = requests;
+                RequestCabListAdapter adapter = new RequestCabListAdapter(requests, getContext());
+                recyclerView.setAdapter(adapter);
+            }
+        };
+
+        mViewModel.loadRequests().observe(getViewLifecycleOwner(), observer);
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(getContext()));
 

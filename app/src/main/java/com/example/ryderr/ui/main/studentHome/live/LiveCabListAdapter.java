@@ -5,13 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.ryderr.R;
 import com.example.ryderr.models.LiveCab;
 
 import java.util.Collections;
 import java.util.List;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class LiveCabListAdapter extends RecyclerView.Adapter<LiveCabViewHolder> {
 
@@ -41,7 +41,7 @@ public class LiveCabListAdapter extends RecyclerView.Adapter<LiveCabViewHolder> 
 
         final int index = holder.getAdapterPosition();
 
-        LiveCab liveCab = list.get(position);
+        LiveCab liveCab = list.get(position);//observe list
         holder.from.setText(liveCab.getFrom_location());
         holder.to.setText(liveCab.getTo_location());
         holder.timeText.setText(liveCab.getDeparture_time());
