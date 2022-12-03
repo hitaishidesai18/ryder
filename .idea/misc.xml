@@ -8,13 +8,18 @@
         <entry key="..\:/Users/srida/ryder/app/src/main/res/drawable/ic_launcher_background.xml" value="0.137" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_cabs.xml" value="0.264" />
+        <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_driver.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_live_cab.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_live_cabs.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_login.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_request.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_request.xml" value="0.2542372881355932" />
+        <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_request_driver.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_splash_screen.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/fragment_upcoming.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/live_cab_card.xml" value="0.2734375" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/request_cab_card.xml" value="0.2734375" />
+        <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/request_driver_card.xml" value="0.4157088122605364" />
+        <entry key="..\:/Users/srida/ryder/app/src/main/res/layout/upcoming_cab_card.xml" value="0.2734375" />
         <entry key="..\:/Users/srida/ryder/app/src/main/res/mipmap-anydpi-v26/avatar.xml" value="0.137" />
         <entry key="..\:/cs4_1/sdpd/Ryder/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/cs4_1/sdpd/Ryder/app/src/main/res/layout/fragment_login.xml" value="0.10989583333333333" />

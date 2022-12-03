@@ -19,47 +19,52 @@ import android.view.ViewGroup;
 import com.example.ryderr.R;
 import com.example.ryderr.ui.main.cabs.live.LiveCabsFragment;
 import com.example.ryderr.ui.main.cabs.request.RequestFragment;
+import com.example.ryderr.ui.main.cabs.request_Driver.RequestDriverFragment;
+import com.example.ryderr.ui.main.cabs.upcoming.UpcomingFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 
-public class CabsFragment extends Fragment {
+public class DriverFragment extends Fragment {
 
-    private CabsViewModel mViewModel;
+    private DriverViewModel mViewModel;
     private ViewPager2 viewPager;
     private TabLayout tabLayout;
-    private LiveCabsFragment liveCabsFragment;
+    private UpcomingFragment upcomingFragment;
     private ArrayList<String> titles = new ArrayList<>();
-    CabAdapter cabAdapter;
+    UpcomingAdapter upcomingAdapter;
+    private RequestFragment requestFragment;
 
-    public static CabsFragment newInstance() {
-        return new CabsFragment();
+
+
+    public static DriverFragment newInstance() {
+        return new DriverFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_cabs, container, false);
+        return inflater.inflate(R.layout.fragment_driver, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mViewModel = new ViewModelProvider(this).get(CabsViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(DriverViewModel.class);
         // TODO: Use the ViewModel
-        titles.add("Live Cabs");
+        titles.add("Upcoming Cabs");
         titles.add("Requests");
-        tabLayout = getView().findViewById(R.id.user_tab_layout);
-        viewPager = getView().findViewById(R.id.user_viewpager);
-        cabAdapter = new CabAdapter(getChildFragmentManager(), getLifecycle());
+        tabLayout = getView().findViewById(R.id.driver_tab_layout);
+        viewPager = getView().findViewById(R.id.driver_viewpager);
+        upcomingAdapter = new UpcomingAdapter(getChildFragmentManager(), getLifecycle());
 
-        cabAdapter.addFragment(new LiveCabsFragment());
-        cabAdapter.addFragment(new RequestFragment());
+        upcomingAdapter.addFragment(new UpcomingFragment());
+        upcomingAdapter.addFragment(new RequestDriverFragment());
         viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-        viewPager.setAdapter(cabAdapter);
+        viewPager.setAdapter(upcomingAdapter);
         new TabLayoutMediator(tabLayout, viewPager, this::onConfigureTab).attach();
 
 
@@ -71,12 +76,12 @@ public class CabsFragment extends Fragment {
         tab.setText(titles.get(position));
     }
 
-    public class CabAdapter extends FragmentStateAdapter {
+    public class UpcomingAdapter extends FragmentStateAdapter {
 
         private final int NUM_TABS = 2;
         private ArrayList<Fragment> fragmentList = new ArrayList<>();
 
-        public CabAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
+        public UpcomingAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
             super(fragmentManager, lifecycle);
         }
 

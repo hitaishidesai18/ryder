@@ -143,7 +143,7 @@ public class LoginFragment extends Fragment {
                         }else{
                                 Toast.makeText(getContext(), "welcome "+name, Toast.LENGTH_SHORT).show();
                         }
-                        Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_liveCabs);
+                        Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_driverFragment);
 
                     }
                 });
