@@ -1,30 +1,28 @@
 package com.example.ryderr.ui.main.studentHome.live;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ryderr.R;
-import com.example.ryderr.models.Cab;
+import com.example.ryderr.models.LiveCab;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class LiveCabsFragment extends Fragment {
 
     private LiveCabsViewModel mViewModel;
     RecyclerView recyclerView;
-    ArrayList<Cab> list;
+    ArrayList<LiveCab> list;
 
     public static LiveCabsFragment newInstance() {
         return new LiveCabsFragment();
@@ -55,9 +53,9 @@ public class LiveCabsFragment extends Fragment {
         LiveCabListAdapter adapter = new LiveCabListAdapter(list, getContext());
         //recyclerView.setAdapter(adapter);
 
-        Observer<ArrayList<Cab>> observer = new Observer<ArrayList<Cab>>() {
+        Observer<ArrayList<LiveCab>> observer = new Observer<ArrayList<LiveCab>>() {
             @Override
-            public void onChanged(ArrayList<Cab> cabs) {
+            public void onChanged(ArrayList<LiveCab> cabs) {
                 list = cabs;
                 LiveCabListAdapter adapter = new LiveCabListAdapter(list, getContext());
                 recyclerView.setAdapter(adapter);
@@ -65,7 +63,7 @@ public class LiveCabsFragment extends Fragment {
             }
         };
 
-        mViewModel.getStudentLiveCabs().observe(getViewLifecycleOwner(), observer);
+        mViewModel.loadLiveCabs().observe(getViewLifecycleOwner(), observer);
        // recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(getContext()));

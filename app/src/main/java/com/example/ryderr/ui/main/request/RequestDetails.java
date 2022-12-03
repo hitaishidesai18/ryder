@@ -1,21 +1,17 @@
 package com.example.ryderr.ui.main.request;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ryderr.R;
-import com.example.ryderr.models.Request;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 public class RequestDetails extends Fragment {
 
@@ -45,19 +41,6 @@ public class RequestDetails extends Fragment {
         TextView textView8 = view.findViewById(R.id.confirmed_passengers);
 
 
-        final Observer<Request> observer = new Observer<Request>() {
-            @Override
-            public void onChanged(Request request) {
-                String name = request.name;
-                String driverName = request.driverName;
-                String pickup = request.pickup;
-                String destination = request.destination;
-                String date_time = request.dateTime;
-                String cost = request.cost;
-                String space_left = request.space;
-                String confirmed_passengers = request.confirmedPassengers;
-            }
-        };
 
     }
 

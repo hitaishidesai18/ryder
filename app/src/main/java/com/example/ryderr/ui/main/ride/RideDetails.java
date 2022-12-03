@@ -1,22 +1,16 @@
 package com.example.ryderr.ui.main.ride;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ryderr.R;
-import com.example.ryderr.models.Ride;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 public class RideDetails extends Fragment {
 
     private RideDetailsViewModel mViewModel;
@@ -45,29 +39,9 @@ public class RideDetails extends Fragment {
         TextView textView7 = view.findViewById(R.id.space_left);
         TextView textView8 = view.findViewById(R.id.confirmed_passengers);
 
-       // mViewModel.driverName.observe(getViewLifecycleOwner(),observer );
-        final Observer<Ride> observer1 = new Observer<Ride>() {
-            @Override
-            public void onChanged(Ride ride) {
-                String driverName = ride.driverName;
-                String name = ride.name;
-                String reg_number = ride.vehicleNumber;
-                String pickup = ride.pickup;
-                String destination = ride.destination;
-                String date_time = ride.dateTime;
-                String cost = ride.cost;
-                String space = ride.space;
-                String confirmed_pass = ride.confirmedPassengers;
 
-            }
-        };
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(RideDetailsViewModel.class);
-        // TODO: Use the ViewModel
-    }
+
 
 }

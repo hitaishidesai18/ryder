@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.studentHome.live;
+package com.example.ryderr.ui.main.studentHome;
 
 import androidx.lifecycle.ViewModel;
 
