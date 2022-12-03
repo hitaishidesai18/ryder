@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_loginFragment_to_cabsFragment"
             app:destination="@id/cabsFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_driverLogin"
+            app:destination="@id/driverLogin" />
     </fragment>
     <fragment
         android:id="@+id/cabsFragment"
@@ -52,6 +55,18 @@
         <action
             android:id="@+id/action_studentProfile_to_splashScreen"
             app:destination="@id/splashScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverLogin"
+        android:name="com.example.ryderr.ui.main.driverLogin.DriverLoginFragment"
+        android:label="driver login frag"
+        tools:layout="@layout/fragment_driver_login" >
+        <action
+            android:id="@+id/action_driverLogin_to_cabsFragment"
+            app:destination="@id/cabsFragment" />
+        <action
+            android:id="@+id/action_driverLogin_to_liveCabs"
+            app:destination="@id/liveCabs" />
     </fragment>
 
 </navigation>
