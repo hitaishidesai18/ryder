@@ -83,6 +83,7 @@ public class LoginFragment extends Fragment {
             }
         });
         driverlogin.setOnClickListener(view1 -> {
+            Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_driverLogin);
         });
 
 
