@@ -1,30 +1,31 @@
 package com.example.ryderr.ui.main.studentHome.request;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ryderr.R;
-import com.example.ryderr.models.RequestCab;
-
+import com.example.ryderr.models.Request;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class RequestFragment extends Fragment {
 
     private RequestViewModel mViewModel;
     RecyclerView recyclerView;
-    ArrayList<RequestCab> list;
+    ArrayList<Request> list;
 
     public static RequestFragment newInstance() {
         return new RequestFragment();
@@ -37,8 +38,8 @@ public class RequestFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(RequestViewModel.class);
         // TODO: Use the ViewModel
 
@@ -48,6 +49,16 @@ public class RequestFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(getContext()));
+
+        FloatingActionButton addRequestBtn = view.findViewById(R.id.add_request_button);
+        addRequestBtn.setOnClickListener(view1 -> {
+            NavController navController = Navigation.findNavController(view);
+            Log.e("navigate error", navController.getCurrentDestination().getDisplayName() );
+            Navigation.findNavController(view).navigate(R.id.action_cabsFrag_to_addRequest);
+
+        });
     }
+
+
 
 }

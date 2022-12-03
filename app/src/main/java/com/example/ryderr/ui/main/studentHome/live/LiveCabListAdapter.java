@@ -4,23 +4,22 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ryderr.R;
-import com.example.ryderr.models.Cab;
+import com.example.ryderr.models.LiveCab;
 
 import java.util.Collections;
 import java.util.List;
 
 public class LiveCabListAdapter extends RecyclerView.Adapter<LiveCabViewHolder> {
 
-    List<Cab> list = Collections.emptyList();
+    List<LiveCab> list = Collections.emptyList();
     Context context;
     LiveCabsViewModel cabViewModel;
 
-    public LiveCabListAdapter(List<Cab> list, Context context) {
+    public LiveCabListAdapter(List<LiveCab> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -42,22 +41,22 @@ public class LiveCabListAdapter extends RecyclerView.Adapter<LiveCabViewHolder> 
 
         final int index = holder.getAdapterPosition();
 
-        Cab cab = list.get(position);
-        holder.from.setText(cab.getFrom_location());
-        holder.to.setText(cab.getTo_location());
-        holder.timeText.setText(cab.getDeparture_time());
-        holder.driver_name.setText(cab.getDriver_name());
-        holder.vehicle.setText(cab.getVehicle_number());
-        holder.fare_text.setText(cab.getFareText());
-        int capacity = cab.getCapacity();
-        int count_riders = cab.getCount_riders();
+        LiveCab liveCab = list.get(position);
+        holder.from.setText(liveCab.getFrom_location());
+        holder.to.setText(liveCab.getTo_location());
+        holder.timeText.setText(liveCab.getDeparture_time());
+        holder.driver_name.setText(liveCab.getDriver_name());
+        holder.vehicle.setText(liveCab.getVehicle_number());
+        holder.fare_text.setText(liveCab.getFareText());
+        int capacity = liveCab.getCapacity();
+        int count_riders = liveCab.getCount_riders();
         String progressText = count_riders + "/" + capacity;
         holder.cabProgressText.setText(progressText);
         holder.cabProgressBar.setMax(capacity);
         holder.cabProgressBar.setProgress(count_riders);
 
         holder.joinButton.setOnClickListener(view -> {
-            cabViewModel.joinCab(cab.getLive_cab_id());
+            cabViewModel.joinCab(liveCab.getLive_cab_id());
             holder.joinButton.setVisibility(View.GONE);
             holder.seeDetailBtn.setVisibility(View.VISIBLE);
         });

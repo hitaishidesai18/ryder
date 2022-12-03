@@ -1,20 +1,11 @@
 package com.example.ryderr.ui.main.login;
 
-import android.util.Log;
-
-import com.example.ryderr.models.Cab;
 import com.example.ryderr.models.Student;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Arrays;
-
-import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel {

@@ -6,19 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.ryderr.R;
-import com.example.ryderr.models.RequestCab;
+import com.example.ryderr.models.Request;
 
 import java.util.Collections;
 import java.util.List;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 public class RequestCabListAdapter extends RecyclerView.Adapter<RequestCabViewHolder>{
-    List<RequestCab> list = Collections.emptyList();
+    List<Request> list = Collections.emptyList();
     Context context;
 
-    public RequestCabListAdapter(List<RequestCab> list, Context context) {
+    public RequestCabListAdapter(List<Request> list, Context context) {
         this.list = list;
         this.context = context;
     }

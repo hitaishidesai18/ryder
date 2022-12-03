@@ -24,25 +24,32 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_liveCabs"
-            app:destination="@id/liveCabs" />
+            app:destination="@id/liveLiveCabs" />
         <action
             android:id="@+id/action_loginFragment_to_cabsFragment"
             app:destination="@id/cabsFragment" />
         <action
+
             android:id="@+id/action_loginFragment_to_driverLogin"
             app:destination="@id/driverLogin" />
+            android:id="@+id/action_loginFragment_self"
+            app:destination="@id/loginFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/cabsFragment"
-        android:name="com.example.ryderr.ui.main.studentHome.live.CabsFragment"
+        android:name="com.example.ryderr.ui.main.studentHome.CabsFragment"
         android:label="fragment_cabs"
         tools:layout="@layout/fragment_cabs" >
         <action
             android:id="@+id/action_cabsFragment_to_studentProfile"
             app:destination="@id/studentProfile" />
+        <action
+            android:id="@+id/action_cabsFrag_to_addRequest"
+            app:destination="@id/addRequest" />
     </fragment>
     <fragment
-        android:id="@+id/liveCabs"
+        android:id="@+id/liveLiveCabs"
         android:name="com.example.ryderr.ui.main.studentHome.live.LiveCabsFragment"
         android:label="live cabs frag"
         tools:layout="@layout/fragment_live_cabs" />
@@ -57,6 +64,7 @@
             app:destination="@id/splashScreen" />
     </fragment>
     <fragment
+
         android:id="@+id/driverLogin"
         android:name="com.example.ryderr.ui.main.driverLogin.DriverLoginFragment"
         android:label="driver login frag"
@@ -67,6 +75,26 @@
         <action
             android:id="@+id/action_driverLogin_to_liveCabs"
             app:destination="@id/liveCabs" />
+</fragment>
+<fragment
+        android:id="@+id/addRequest"
+        android:name="com.example.ryderr.ui.main.addRequest.AddRequest"
+        android:label="add req frag"
+        tools:layout="@layout/fragment_add_request" >
+        <action
+            android:id="@+id/action_addRequest_to_cabsFragment"
+            app:destination="@id/cabsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/requestFrag"
+        android:name="com.example.ryderr.ui.main.studentHome.request.RequestFragment"
+        android:label=" req frag"
+        tools:layout="@layout/fragment_request" >
+        <action
+            android:id="@+id/action_requestFrag_to_addRequest"
+            app:destination="@id/addRequest" />
+
     </fragment>
 
 </navigation>

@@ -2,7 +2,7 @@ package com.example.ryderr.ui.main.studentHome.live;
 
 import android.util.Log;
 
-import com.example.ryderr.models.Cab;
+import com.example.ryderr.models.LiveCab;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -12,6 +12,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,10 +26,11 @@ import androidx.lifecycle.ViewModel;
 public class LiveCabsViewModel extends ViewModel {
     private static final String TAG = "Live cabs view model";
     // TODO: Implement the ViewModel
-    public MutableLiveData<ArrayList<Cab>> studentLiveCabs;
+    public MutableLiveData<ArrayList<LiveCab>> studentLiveCabs;
     private DatabaseReference mDatabase;
 
-    public MutableLiveData<ArrayList<Cab>> getStudentLiveCabs() {
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public MutableLiveData<ArrayList<LiveCab>> getStudentLiveCabs() {
 
         if(studentLiveCabs==null){
             studentLiveCabs = new MutableLiveData<>();
@@ -41,17 +45,17 @@ public class LiveCabsViewModel extends ViewModel {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                GenericTypeIndicator<HashMap<String,Cab>> t=  new GenericTypeIndicator<HashMap<String,Cab>>() { };
+                GenericTypeIndicator<HashMap<String, LiveCab>> t=  new GenericTypeIndicator<HashMap<String, LiveCab>>() { };
 
-                HashMap<String,Cab> hashMap= (HashMap<String,Cab>)dataSnapshot.getValue(t);
+                HashMap<String, LiveCab> hashMap= (HashMap<String, LiveCab>)dataSnapshot.getValue(t);
 
-                ArrayList<Cab> cabsList;
+                ArrayList<LiveCab> cabsList;
                 if(hashMap!=null) {
-                    cabsList = new ArrayList<Cab>(hashMap.values());
+                    cabsList = new ArrayList<LiveCab>(hashMap.values());
 
 
                 }else{
-                    cabsList = new ArrayList<Cab>();
+                    cabsList = new ArrayList<LiveCab>();
 
                 }
 //                GenericTypeIndicator<HashMap<String,Cab>> t=  new GenericTypeIndicator<HashMap<String,Cab>>() { };
@@ -113,6 +117,35 @@ public class LiveCabsViewModel extends ViewModel {
 //        };
 //        mDatabase.addChildEventListener(childEventListener);
 
+        return studentLiveCabs;
+    }
+
+    public MutableLiveData<ArrayList<LiveCab>> loadLiveCabs(){
+        if(studentLiveCabs==null){
+            studentLiveCabs = new MutableLiveData<>();
+        }
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
+        ArrayList<LiveCab> liveLiveCabs = new ArrayList<>();
+        db.collection("cabs")
+                .whereEqualTo("live", true)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                LiveCab liveCab = document.toObject(LiveCab.class);
+                                liveLiveCabs.add(liveCab);
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+        studentLiveCabs.setValue(liveLiveCabs);
         return studentLiveCabs;
     }
     public void joinCab(String cabId){
@@ -181,16 +214,16 @@ public class LiveCabsViewModel extends ViewModel {
 
     }
 
-    public ArrayList<Cab> populate(){
+    public ArrayList<LiveCab> populate(){
 
-        ArrayList<Cab>  list = new ArrayList<>();
-        list.add(new Cab());
-        list.add(new Cab());
-        list.add(new Cab());
-        list.add(new Cab());
-        list.add(new Cab());
-        list.add(new Cab());
-        list.add(new Cab());
+        ArrayList<LiveCab>  list = new ArrayList<>();
+        list.add(new LiveCab());
+        list.add(new LiveCab());
+        list.add(new LiveCab());
+        list.add(new LiveCab());
+        list.add(new LiveCab());
+        list.add(new LiveCab());
+        list.add(new LiveCab());
 
         return list;
     }

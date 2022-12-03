@@ -5,6 +5,10 @@ public class Student {
     String displayName;
     String emailId;
 
+    public Student() {
+
+    }
+
     public String getUid() {
         return uid;
     }

@@ -7,26 +7,8 @@
     tools:context=".ui.main.addRequest.AddRequest">
 
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/request_bar"
-                android:textSize="30dp">
-
-            </TextView>
 
 
-        </androidx.appcompat.widget.Toolbar>
 
 
 
@@ -49,29 +31,11 @@
             android:layout_marginTop="10dp"
             android:layout_weight="0.9">
 
-        <TextView
-            android:id="@+id/textViewNAME"
-            android:layout_width="123dp"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:text="@string/passenger_name"
-           />
-
-        <EditText
-            android:id="@+id/editTextNAME"
-            android:layout_width="290dp"
-            android:layout_height="wrap_content"
-
-            android:background="@drawable/styles"
-            android:hint="@string/passenger_name">
-
-
-        </EditText>
             <TextView
                 android:id="@+id/textViewPickup"
                 android:layout_width="123dp"
                 android:layout_height="wrap_content"
-                android:textSize="30dp"
+                android:textSize="@dimen/large_text"
                 android:text="Pickup:"/>
             <EditText
                 android:id="@+id/editViewPickup"
@@ -85,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:textSize="30dp"
+            android:textSize="@dimen/large_text"
             android:text="@string/destination">
 
         </TextView>
@@ -103,8 +67,8 @@
             android:id="@+id/textViewDateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/date_time"
-            android:textSize="30dp"
+            android:text="Time:"
+            android:textSize="@dimen/large_text"
            >
 
         </TextView>
@@ -123,54 +87,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose type:"
-            android:textSize="30dp"
+            android:textSize="@dimen/large_text"
             >
 
         </TextView>
-        <RadioGroup
+       <Spinner
+           android:id="@+id/vehicle_type_spinner"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
 
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/radioGroup"
-            >
-            <RadioButton
-                android:id="@+id/radiocar4"
+       </Spinner>
+            <TextView
+                android:id="@+id/chooseCapacity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Car for 4"
-                android:textSize="25dp"
+                android:text="Expected capacity of the ride:"
+                android:textSize="@dimen/large_text"
                 >
 
-            </RadioButton>
-            <RadioButton
-                android:id="@+id/radiocar6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Car for 6"
-                android:textSize="25dp"
-               >
+            </TextView>
+            <Spinner
+                android:id="@+id/capacity_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            </RadioButton>
-            <RadioButton
-                android:id="@+id/radioauto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Auto"
-                android:textSize="25dp"
-                >
-
-            </RadioButton>
-
-        </RadioGroup>
+            </Spinner>
         </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/buttonRequest"
+        android:id="@+id/submit_request_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="580dp"

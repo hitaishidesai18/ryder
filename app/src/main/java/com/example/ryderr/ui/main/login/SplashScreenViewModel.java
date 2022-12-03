@@ -3,8 +3,7 @@ package com.example.ryderr.ui.main.login;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.example.ryderr.R;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -32,5 +31,9 @@ public class SplashScreenViewModel extends ViewModel {
                 //Navigation.findNavController(view).navigate(R.id.action_splashScreen_to_loginFragment);
             }
         }, SPLASH_DISPLAY_LENGTH);
+    }
+    public void addCab(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+     //   LiveCab liveCab = new LiveCab("c0",null,7,0,);
     }
 }
