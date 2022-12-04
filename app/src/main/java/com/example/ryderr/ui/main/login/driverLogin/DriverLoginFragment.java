@@ -1,12 +1,6 @@
-package com.example.ryderr.ui.main.driverLogin;
+package com.example.ryderr.ui.main.login.driverLogin;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +14,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 
 public class DriverLoginFragment extends Fragment {
@@ -60,7 +59,7 @@ public class DriverLoginFragment extends Fragment {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     Toast.makeText(getContext(), "Login successful", Toast.LENGTH_SHORT).show();
-                                    Navigation.findNavController(driverLoginFragObj).navigate(R.id.action_driverLogin_to_liveCabs);
+                                    Navigation.findNavController(driverLoginFragObj).navigate(R.id.action_driverLogin_to_driverFragment);
 
                                 }
                             })
