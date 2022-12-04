@@ -111,16 +111,28 @@
 
     <fragment
         android:id="@+id/driverFragment"
-        android:name="com.example.ryderr.ui.main.driverHome.DriverFragment"
-        android:label="DriverFragment" />
-=======
-        tools:layout="@layout/fragment_login"/>
+        android:name="com.example.ryderr.ui.main.driver.driverHome.DriverFragment"
+        android:label="DriverFragment" >
+        <action
+            android:id="@+id/action_driverFragment_to_driverProfileFragment"
+            app:destination="@id/driverProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverProfileFragment"
+        android:name="com.example.ryderr.ui.main.driver.DriverProfileFragment"
+        android:label="fragment_driver_profile"
+        tools:layout="@layout/fragment_driver_profile" >
+        <action
+            android:id="@+id/action_driverProfileFragment_to_splashScreen"
+            app:destination="@id/splashScreen" />
+    </fragment>
+
+
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.ryder.ui.main.ChatFragment"
         android:label="chat screen"
         tools:layout="@layout/fragment_chat"/>
->>>>>>> 5baf44d (added chat screen)
 
 
 </navigation>

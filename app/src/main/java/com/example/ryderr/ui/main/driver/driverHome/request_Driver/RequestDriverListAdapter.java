@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.driverHome.upcoming;
+package com.example.ryderr.ui.main.driver.driverHome.request_Driver;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,34 +9,33 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ryderr.R;
-import com.example.ryderr.models.Upcoming;
+import com.example.ryderr.models.RequestDriver;
 
 import java.util.Collections;
 import java.util.List;
 
-public class UpcomingListAdapter extends RecyclerView.Adapter<UpcomingViewHolder> {
-
-    List<Upcoming> list = Collections.emptyList();
+public class RequestDriverListAdapter extends RecyclerView.Adapter<RequestDriverViewHolder>{
+    List<RequestDriver> list = Collections.emptyList();
     Context context;
 
-    public UpcomingListAdapter(List<Upcoming> list, Context context) {
+    public RequestDriverListAdapter(List<RequestDriver> list, Context context) {
         this.list = list;
         this.context = context;
     }
 
     @Override
-    public UpcomingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RequestDriverViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View view = inflater.inflate(R.layout.upcoming_cab_card, parent, false);
-        UpcomingViewHolder viewHolder = new UpcomingViewHolder(view);
+        View view = inflater.inflate(R.layout.request_driver_card, parent, false);
+        RequestDriverViewHolder viewHolder = new RequestDriverViewHolder(view);
 
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(UpcomingViewHolder holder, int position) {
+    public void onBindViewHolder(RequestDriverViewHolder holder, int position) {
 
         final int index = holder.getAdapterPosition();
         holder.view.setOnClickListener(new View.OnClickListener() {
@@ -59,4 +58,3 @@ public class UpcomingListAdapter extends RecyclerView.Adapter<UpcomingViewHolder
         super.onAttachedToRecyclerView(recyclerView);
     }
 }
-
