@@ -45,6 +45,21 @@ public class LiveCab {
     ArrayList<String> riders_ids;
     int count_riders;
 
+    public String getVehicle_type() {
+        return vehicle_type;
+    }
+
+    public void setVehicle_type(String vehicle_type) {
+        this.vehicle_type = vehicle_type;
+    }
+
+    public ArrayList<String> getRiders_ids() {
+        return riders_ids;
+    }
+
+    public void setRiders_ids(ArrayList<String> riders_ids) {
+        this.riders_ids = riders_ids;
+    }
 
     public LiveCab(String cab_id, String driver_id, boolean live, String from_location,
             String to_location, String departure_time, int fare,

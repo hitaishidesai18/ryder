@@ -3,7 +3,6 @@ package com.example.ryderr.ui.main.driver.driverHome.upcoming;
 import android.util.Log;
 
 import com.example.ryderr.models.LiveCab;
-import com.example.ryderr.models.Upcoming;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -14,6 +13,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
@@ -35,7 +35,7 @@ public class UpcomingViewModel extends ViewModel {
         String driverId = FirebaseAuth.getInstance().getUid();
         ArrayList<LiveCab> list = new ArrayList<>();
         db.collection("cabs")
-                .whereEqualTo("live", true)
+                //.whereEqualTo("live", true)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -44,32 +44,31 @@ public class UpcomingViewModel extends ViewModel {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 LiveCab liveCab = document.toObject(LiveCab.class);
-                                if(liveCab.getDriver_id() == driverId) {
+                                if(Objects.equals(liveCab.getDriver_id(), driverId))
                                     list.add(liveCab);
-                                }
+
                             }
+                            driverCabslist.setValue(list);
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
                     }
                 });
-        driverCabslist.setValue(list);
+        Log.d(TAG, list.toString());
+
         return driverCabslist;
     }
 
 
 
 
-    public ArrayList<Upcoming> populate(){
+    public ArrayList<LiveCab> populate(){
 
-        ArrayList<Upcoming>  list = new ArrayList<>();
-        list.add(new Upcoming());
-        list.add(new Upcoming());
-        list.add(new Upcoming());
-        list.add(new Upcoming());
-        list.add(new Upcoming());
-        list.add(new Upcoming());
-        list.add(new Upcoming());
+        ArrayList<LiveCab>  list = new ArrayList<>();
+        list.add(new LiveCab());
+        list.add(new LiveCab());
+        list.add(new LiveCab());
+
 
         return list;
     }

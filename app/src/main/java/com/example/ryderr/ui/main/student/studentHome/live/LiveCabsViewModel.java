@@ -30,95 +30,6 @@ public class LiveCabsViewModel extends ViewModel {
     private DatabaseReference mDatabase;
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
-    public MutableLiveData<ArrayList<LiveCab>> getStudentLiveCabs() {
-
-        if(studentLiveCabs==null){
-            studentLiveCabs = new MutableLiveData<>();
-        }
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
-
-
-        DatabaseReference liveCabRef = mDatabase.child("cabs");
-       // Query queryRef = liveCabRef.orderByChild("live").equalTo(true);
-        liveCabRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                GenericTypeIndicator<HashMap<String, LiveCab>> t=  new GenericTypeIndicator<HashMap<String, LiveCab>>() { };
-
-                HashMap<String, LiveCab> hashMap= (HashMap<String, LiveCab>)dataSnapshot.getValue(t);
-
-                ArrayList<LiveCab> cabsList;
-                if(hashMap!=null) {
-                    cabsList = new ArrayList<LiveCab>(hashMap.values());
-
-
-                }else{
-                    cabsList = new ArrayList<LiveCab>();
-
-                }
-//                GenericTypeIndicator<HashMap<String,Cab>> t=  new GenericTypeIndicator<HashMap<String,Cab>>() { };
-//                ArrayList<Cab> cabsList = dataSnapshot.getValue(t);
-            studentLiveCabs.setValue(cabsList);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-//        ChildEventListener childEventListener = new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-//                Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
-//
-//                Cab cab = dataSnapshot.getValue(Cab.class);
-//                ArrayList<Cab> cabs = studentLiveCabs.getValue();
-//                cabs.add(cab);
-//                studentLiveCabs.setValue(cabs);
-//
-//            }
-//
-//            @Override
-//            public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-//                Log.d(TAG, "onChildChanged:" + dataSnapshot.getKey());
-//
-//                // A comment has changed, use the key to determine if we are displaying this
-//                // comment and if so displayed the changed comment.
-//                Cab cab = dataSnapshot.getValue(Cab.class);
-//                String cabKey = dataSnapshot.getKey();
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(DataSnapshot dataSnapshot) {
-//                Log.d(TAG, "onChildRemoved:" + dataSnapshot.getKey());
-//
-//                // A comment has changed, use the key to determine if we are displaying this
-//                // comment and if so remove it.
-//                String cabKey = dataSnapshot.getKey();
-//
-//                // ...
-//            }
-//
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot snapshot,
-//                    @Nullable String previousChildName) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                Log.w(TAG, "postComments:onCancelled", databaseError.toException());
-//            }
-//        };
-//        mDatabase.addChildEventListener(childEventListener);
-
-        return studentLiveCabs;
-    }
 
     public MutableLiveData<ArrayList<LiveCab>> loadLiveCabs(){
         if(studentLiveCabs==null){
@@ -140,12 +51,13 @@ public class LiveCabsViewModel extends ViewModel {
                                 LiveCab liveCab = document.toObject(LiveCab.class);
                                 liveLiveCabs.add(liveCab);
                             }
+                            studentLiveCabs.setValue(liveLiveCabs);
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
                     }
                 });
-        studentLiveCabs.setValue(liveLiveCabs);
+
         return studentLiveCabs;
     }
     public void joinCab(String cabId){

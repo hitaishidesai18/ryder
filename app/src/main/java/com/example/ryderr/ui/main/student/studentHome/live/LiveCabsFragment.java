@@ -38,7 +38,7 @@ public class LiveCabsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
 
-        mViewModel.getStudentLiveCabs();
+        mViewModel.loadLiveCabs();
         return inflater.inflate(R.layout.fragment_live_cabs, container, false);
     }
 
@@ -46,11 +46,11 @@ public class LiveCabsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(LiveCabsViewModel.class);
-        // TODO: Use the ViewModel
+
 
         recyclerView = getView().findViewById(R.id.recycler_view);
         list = mViewModel.populate();
-        LiveCabListAdapter adapter = new LiveCabListAdapter(list, getContext());
+     //   LiveCabListAdapter adapter = new LiveCabListAdapter(list, getContext());
         //recyclerView.setAdapter(adapter);
 
         Observer<ArrayList<LiveCab>> observer = new Observer<ArrayList<LiveCab>>() {
@@ -63,7 +63,8 @@ public class LiveCabsFragment extends Fragment {
             }
         };
 
-        mViewModel.loadLiveCabs().observe(getViewLifecycleOwner(), observer);
+        mViewModel.loadLiveCabs();
+        mViewModel.studentLiveCabs.observe(getViewLifecycleOwner(), observer);
         // recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(getContext()));

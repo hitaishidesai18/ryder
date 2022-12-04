@@ -6,20 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.ryderr.R;
-import com.example.ryderr.models.Upcoming;
+import com.example.ryderr.models.LiveCab;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 public class UpcomingListAdapter extends RecyclerView.Adapter<UpcomingViewHolder> {
 
-    List<Upcoming> list = Collections.emptyList();
+    List<LiveCab> list = Collections.emptyList();
     Context context;
 
-    public UpcomingListAdapter(List<Upcoming> list, Context context) {
+    public UpcomingListAdapter(ArrayList<LiveCab> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -38,7 +39,12 @@ public class UpcomingListAdapter extends RecyclerView.Adapter<UpcomingViewHolder
     @Override
     public void onBindViewHolder(UpcomingViewHolder holder, int position) {
 
-        final int index = holder.getAdapterPosition();
+        LiveCab liveCab = list.get(position);
+        holder.from.setText(liveCab.getFrom_location());
+        holder.to.setText(liveCab.getTo_location());
+        holder.timeText.setText(liveCab.getDeparture_time());
+        holder.fare_text.setText(liveCab.getFareText());
+
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

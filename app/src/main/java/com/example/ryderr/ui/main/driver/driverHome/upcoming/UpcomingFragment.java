@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ryderr.R;
-import com.example.ryderr.models.Upcoming;
+import com.example.ryderr.models.LiveCab;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class UpcomingFragment extends Fragment {
 
     private UpcomingViewModel mViewModel;
     RecyclerView recyclerView;
-    ArrayList<Upcoming> list;
+    ArrayList<LiveCab> list;
 
 
     public static UpcomingFragment newInstance() {
@@ -32,6 +32,7 @@ public class UpcomingFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
             @Nullable Bundle savedInstanceState) {
         mViewModel = new UpcomingViewModel();
+        mViewModel.getDriverCabs();
         return inflater.inflate(R.layout.fragment_upcoming, container, false);
     }
 
@@ -40,16 +41,18 @@ public class UpcomingFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = getView().findViewById(R.id.upcoming_recycler);
         list = mViewModel.populate();
-        Observer<ArrayList<Upcoming>> observer = new Observer<ArrayList<Upcoming>>() {
+        Observer<ArrayList<LiveCab>> observer = new Observer<ArrayList<LiveCab>>() {
             @Override
-            public void onChanged(ArrayList<Upcoming> cabs) {
+            public void onChanged(ArrayList<LiveCab> cabs) {
                 list = cabs;
-                UpcomingListAdapter adapter = new UpcomingListAdapter(list, getContext());
+                UpcomingListAdapter adapter = new UpcomingListAdapter(cabs, getContext());
                 recyclerView.setAdapter(adapter);
 
             }
         };
 
+        mViewModel.getDriverCabs();
+        mViewModel.driverCabslist.observe(getViewLifecycleOwner(), observer);
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(getContext()));
     }

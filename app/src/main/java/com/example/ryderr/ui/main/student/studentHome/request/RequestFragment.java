@@ -43,7 +43,7 @@ public class RequestFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(RequestViewModel.class);
-        // TODO: Use the ViewModel
+
 
         recyclerView = getView().findViewById(R.id.request_recycler);
         list = mViewModel.populate();
