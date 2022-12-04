@@ -29,9 +29,8 @@ public class LiveCabViewHolder extends RecyclerView.ViewHolder {
         to = itemView.findViewById(R.id.request_driver_to_text);
         timeText = itemView.findViewById(R.id.request_driver_name);
         driver_name = itemView.findViewById(R.id.driver_name_text);
-        vehicle = itemView.findViewById(R.id.vehicle_number_text);
-        fare_text = itemView.findViewById(R.id.fare_text);
-        driverAvatar = itemView.findViewById(R.id.circular_avatar);
+        vehicle = itemView.findViewById(R.id.cab_vehicle_number_text);
+        fare_text = itemView.findViewById(R.id.cab_fare_text);
         joinButton = itemView.findViewById(R.id.request_accept_button);
         view = itemView;
 
