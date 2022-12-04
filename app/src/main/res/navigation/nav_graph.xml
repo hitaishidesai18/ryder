@@ -168,6 +168,9 @@
             android:name="request_id"
             app:argType="string"
             android:defaultValue="0" />
+        <action
+            android:id="@+id/action_studentRequestDetailsFragment_to_cabsFragment"
+            app:destination="@id/cabsFragment" />
     </fragment>
     <fragment
         android:id="@+id/driverRequestDetailsFragment"

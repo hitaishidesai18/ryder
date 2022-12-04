@@ -12,6 +12,9 @@ import com.example.ryderr.R;
 import com.example.ryderr.models.Request;
 import com.example.ryderr.ui.main.student.studentHome.request.RequestViewModel;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
@@ -19,6 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.navigation.Navigation;
 
 
 public class StudentRequestDetailsFragment extends Fragment {
@@ -87,7 +91,10 @@ public class StudentRequestDetailsFragment extends Fragment {
 
 
                 joinBtn.setOnClickListener(view1 ->{
-
+                    String uid = FirebaseAuth.getInstance().getUid();
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("requests").document(requestObj.getRequest_id()).update("riders_ids", FieldValue.arrayUnion(uid));
+                    Navigation.findNavController(view).navigate(R.id.action_studentRequestDetailsFragment_to_cabsFragment);
                 });
             }
         };
