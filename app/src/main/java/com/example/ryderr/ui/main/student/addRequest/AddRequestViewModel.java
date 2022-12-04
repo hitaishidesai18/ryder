@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.addRequest;
+package com.example.ryderr.ui.main.student.addRequest;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 

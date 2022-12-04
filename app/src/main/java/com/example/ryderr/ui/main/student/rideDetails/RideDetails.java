@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.ride;
+package com.example.ryderr.ui.main.student.rideDetails;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

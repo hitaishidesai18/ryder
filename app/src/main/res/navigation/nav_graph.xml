@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/cabsFragment"
-        android:name="com.example.ryderr.ui.main.studentHome.CabsFragment"
+        android:name="com.example.ryderr.ui.main.student.studentHome.CabsFragment"
         android:label="fragment_cabs"
         tools:layout="@layout/fragment_cabs" >
         <action
@@ -55,13 +55,13 @@
     </fragment>
     <fragment
         android:id="@+id/liveLiveCabs"
-        android:name="com.example.ryderr.ui.main.studentHome.live.LiveCabsFragment"
+        android:name="com.example.ryderr.ui.main.student.studentHome.live.LiveCabsFragment"
         android:label="live cabs frag"
         tools:layout="@layout/fragment_live_cabs" />
 
     <fragment
         android:id="@+id/studentProfile"
-        android:name="com.example.ryderr.ui.main.StudentProfileFragment"
+        android:name="com.example.ryderr.ui.main.student.StudentProfileFragment"
         android:label="srudent profile frag"
         tools:layout="@layout/fragment_student_profile" >
         <action
@@ -88,7 +88,7 @@
     </fragment>
 <fragment
         android:id="@+id/addRequest"
-        android:name="com.example.ryderr.ui.main.addRequest.AddRequest"
+        android:name="com.example.ryderr.ui.main.student.addRequest.AddRequest"
         android:label="add req frag"
         tools:layout="@layout/fragment_add_request" >
         <action
@@ -98,7 +98,7 @@
 
     <fragment
         android:id="@+id/requestFrag"
-        android:name="com.example.ryderr.ui.main.studentHome.request.RequestFragment"
+        android:name="com.example.ryderr.ui.main.student.studentHome.request.RequestFragment"
         android:label=" req frag"
         tools:layout="@layout/fragment_request" >
         <action

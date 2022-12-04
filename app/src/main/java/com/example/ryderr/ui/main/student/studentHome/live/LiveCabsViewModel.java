@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.studentHome.live;
+package com.example.ryderr.ui.main.student.studentHome.live;
 
 import android.util.Log;
 

@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.addRequest;
+package com.example.ryderr.ui.main.student.addRequest;
 
 import android.os.Bundle;
 import android.util.Log;

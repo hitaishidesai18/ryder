@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main;
+package com.example.ryderr.ui.main.student;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

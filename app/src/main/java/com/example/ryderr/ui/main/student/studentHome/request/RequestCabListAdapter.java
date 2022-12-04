@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.studentHome.request;
+package com.example.ryderr.ui.main.student.studentHome.request;
 
 import android.content.Context;
 import android.view.LayoutInflater;

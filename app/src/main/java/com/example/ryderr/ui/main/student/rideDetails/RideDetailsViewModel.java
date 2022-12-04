@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.ride;
+package com.example.ryderr.ui.main.student.rideDetails;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
