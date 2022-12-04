@@ -8,14 +8,21 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ryderr.R;
+import com.example.ryderr.models.LiveCab;
 import com.example.ryderr.models.Request;
 import com.example.ryderr.ui.main.driver.driverHome.request_Driver.RequestDriverViewModel;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.navigation.Navigation;
 
 public class DriverRequestDetailsFragment extends Fragment {
     private Request requestObj;
@@ -69,6 +76,26 @@ public class DriverRequestDetailsFragment extends Fragment {
 
 
                 acceptBtn.setOnClickListener(view1 -> {
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    DocumentReference docRef = db.collection("requests").document(requestId);
+                    docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+                            LiveCab cab = new LiveCab(requestId,
+                                    FirebaseAuth.getInstance().getUid(),
+                                    true,
+                                    request.getFrom_location(),
+                                    request.getTo_location(),
+                                    request.getTime(),
+                                    request.getExpected_fare(),
+                                    request.getRiders_ids());
+                            db.collection("cabs").document(requestId).set(cab);
+
+                            db.collection("requests").document(requestId).delete();
+                            Navigation.findNavController(view).navigate(R.id.action_driverRequestDetailsFragment_to_driverFragment);
+
+                        }
+                    });
 
                 });
             }
