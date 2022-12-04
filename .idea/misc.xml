@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/cab_details_list_item.xml" value="0.17552083333333332" />
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_driver_live_cab_details.xml" value="0.1" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_driver_request_details.xml" value="0.1" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_live_cabs.xml" value="0.17552083333333332" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_my_details.xml" value="0.17552083333333332" />
@@ -10,8 +12,10 @@
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_request_details.xml" value="0.17552083333333332" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_request_driver.xml" value="0.17552083333333332" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_ride_details.xml" value="0.17552083333333332" />
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_student_live_cab_details.xml" value="0.1" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/fragment_student_request_details.xml" value="0.16145833333333334" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/live_cab_card.xml" value="0.12817028985507245" />
+        <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/livecab_details_card.xml" value="0.17552083333333332" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/request_cab_card.xml" value="0.12817028985507245" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/request_details_card.xml" value="0.1" />
         <entry key="..\:/Documents/Clg/4-1/SDPD/Project/ryder/app/src/main/res/layout/request_driver_card.xml" value="0.17552083333333332" />

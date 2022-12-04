@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/live_cab_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp"
+    tools:context=".MainActivity"
+    android:backgroundTint="#60ADD8E6">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/estimatedFareText_livecabdetails"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Estimated Fare"
+            android:textSize="25dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="345"
+            android:textSize="25dp"
+            android:id="@+id/estimatedFare_livecabdetails"
+            app:layout_constraintStart_toEndOf="@+id/estimatedFareText_livecabdetails"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fromText_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/estimatedFareText_livecabdetails"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Pick Up"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/from_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="BITS"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@id/fromText_livecabdetails"
+            app:layout_constraintTop_toBottomOf="@id/estimatedFare_livecabdetails" />
+
+        <TextView
+            android:id="@+id/toText_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/fromText_livecabdetails"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Drop Off"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/to_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="BITS"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/toText_livecabdetails"
+            app:layout_constraintTop_toBottomOf="@id/from_livecabdetails" />
+
+        <TextView
+            android:id="@+id/vehicleTypeText_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/toText_livecabdetails"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Vehicle"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/vehicleType_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Rickshaw"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@id/vehicleTypeText_livecabdetails"
+            app:layout_constraintTop_toBottomOf="@id/to_livecabdetails" />
+        <TextView
+            android:id="@+id/vehicleNumberText_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/vehicleTypeText_livecabdetails"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Vehicle Number"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/vehicleNumber_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Rickshaw"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@id/vehicleNumberText_livecabdetails"
+            app:layout_constraintTop_toBottomOf="@id/vehicleType_livecabdetails" />
+
+        <TextView
+            android:id="@+id/timeText_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/vehicleNumberText_livecabdetails"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Departure Time"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/time_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="5:30pm"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/timeText_livecabdetails"
+            app:layout_constraintTop_toBottomOf="@id/vehicleNumber_livecabdetails" />
+        <TextView
+            android:id="@+id/capacityText_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/timeText_livecabdetails"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Capacity"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/capacity_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="5"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@+id/capacityText_livecabdetails"
+            app:layout_constraintTop_toBottomOf="@id/time_livecabdetails" />
+
+        <TextView
+            android:id="@+id/driverText_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/capacityText_livecabdetails"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Driver Name"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/driver_livecabdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="Rickshaw"
+            android:textSize="20dp"
+            app:layout_constraintStart_toEndOf="@id/driverText_livecabdetails"
+            app:layout_constraintTop_toBottomOf="@id/capacity_livecabdetails" />
+
+
+        <TextView
+            android:id="@+id/ridersText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Riders"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/driverText_livecabdetails" />
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ridersList_livecabdetails"
+            app:layout_constraintTop_toBottomOf="@id/ridersText"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="20dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
