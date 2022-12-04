@@ -135,24 +135,29 @@ public class LoginFragment extends Fragment {
 
     }
     private void updateUI(FirebaseUser user){
-        String name = user.getDisplayName();
-        Student student = new Student(user.getUid(), name, user.getEmail());
-        db.collection("students")
-                        .add(student).addOnSuccessListener(
-                        new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+        String email = user.getEmail();
+        if(email.endsWith("hyderabad.bits-pilani.ac.in")){
+            String name = user.getDisplayName();
+            Student student = new Student(user.getUid(), name, user.getEmail());
+            db.collection("students")
+                    .add(student).addOnSuccessListener(
+                            new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
 
-                            }
-                        }) .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.e(TAG, "Error adding document", e);
-                    }
-                });
-        Toast.makeText(getContext(), name, Toast.LENGTH_SHORT).show();
-        Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_cabsFragment);
+                                }
+                            }) .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.e(TAG, "Error adding document", e);
+                        }
+                    });
+            Toast.makeText(getContext(), name, Toast.LENGTH_SHORT).show();
+            Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_liveCabs);
+        }else{
+            Toast.makeText(getContext(), "Please use BITS mail!", Toast.LENGTH_SHORT).show();
+        }
 
     }
     private void signIn(GoogleSignInAccount account){

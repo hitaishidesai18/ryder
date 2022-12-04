@@ -21,9 +21,9 @@ public class UpcomingViewHolder extends RecyclerView.ViewHolder {
     public UpcomingViewHolder(View itemView) {
         super(itemView);
 
-        from = itemView.findViewById(R.id.request_from_text);
-        to = itemView.findViewById(R.id.request_driver_to_text);
-        timeText = itemView.findViewById(R.id.request_driver_text_time);
+        from = itemView.findViewById(R.id.upcoming_from_text);
+        to = itemView.findViewById(R.id.upcoming_driver_to_text);
+        timeText = itemView.findViewById(R.id.upcoming_driver_text_time);
         fare_text = itemView.findViewById(R.id.upcoming_fare_text);
         start = itemView.findViewById(R.id.start_button);
         chat = itemView.findViewById(R.id.chat_button);

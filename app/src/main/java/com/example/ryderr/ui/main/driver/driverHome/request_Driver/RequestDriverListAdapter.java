@@ -6,19 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.ryderr.R;
-import com.example.ryderr.models.RequestDriver;
+import com.example.ryderr.models.Request;
 
 import java.util.Collections;
 import java.util.List;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 public class RequestDriverListAdapter extends RecyclerView.Adapter<RequestDriverViewHolder>{
-    List<RequestDriver> list = Collections.emptyList();
+    List<Request> list = Collections.emptyList();
     Context context;
 
-    public RequestDriverListAdapter(List<RequestDriver> list, Context context) {
+    public RequestDriverListAdapter(List<Request> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -37,7 +37,19 @@ public class RequestDriverListAdapter extends RecyclerView.Adapter<RequestDriver
     @Override
     public void onBindViewHolder(RequestDriverViewHolder holder, int position) {
 
-        final int index = holder.getAdapterPosition();
+        Request request = list.get(position);
+        holder.from.setText(request.getFrom_location());
+        holder.to.setText(request.getTo_location());
+        holder.timeText.setText(request.getTime());
+
+        int capacity = request.getCapacity();
+        int count_riders = request.getCount_riders();
+        String progressText = count_riders + "/" + capacity;
+        holder.d_request_progress_text.setText(progressText);
+        holder.d_requestProgressBar.setMax(capacity);
+        holder.d_requestProgressBar.setProgress(count_riders);
+        holder.fare_text.setText(request.getFare_text());
+
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="@id/request_driver_linearProgressIndicator" />
 
         <TextView
-            android:id="@+id/request_from_text"
+            android:id="@+id/upcoming_from_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -56,7 +56,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/request_driver_to_text"
+            android:id="@+id/upcoming_driver_to_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -64,11 +64,11 @@
             android:text="To: Parade Grounds"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/request_from_text" />
+            app:layout_constraintTop_toBottomOf="@id/upcoming_from_text" />
 
 
         <TextView
-            android:id="@+id/request_driver_text_time"
+            android:id="@+id/upcoming_driver_text_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -76,7 +76,7 @@
             android:text="Departure: 4:00 PM"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/request_driver_to_text" />
+            app:layout_constraintTop_toBottomOf="@id/upcoming_driver_to_text" />
 
         <LinearLayout
             android:id="@+id/button_linearLayout"
@@ -89,7 +89,7 @@
             app:layout_constraintBottom_toTopOf="@+id/request_driver_linearProgressIndicator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/request_driver_text_time">
+            app:layout_constraintTop_toBottomOf="@+id/upcoming_driver_text_time">
 
 
             <com.google.android.material.button.MaterialButton

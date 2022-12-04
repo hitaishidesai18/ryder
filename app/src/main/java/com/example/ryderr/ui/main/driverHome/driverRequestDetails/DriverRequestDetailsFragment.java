@@ -1,11 +1,6 @@
 package com.example.ryderr.ui.main.driverHome.driverRequestDetails;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +10,11 @@ import android.widget.TextView;
 
 import com.example.ryderr.R;
 import com.example.ryderr.models.Request;
-import com.example.ryderr.ui.main.driverHome.RequestDetails;
 import com.google.android.material.button.MaterialButton;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 public class DriverRequestDetailsFragment extends Fragment {
     private Request requestObj;

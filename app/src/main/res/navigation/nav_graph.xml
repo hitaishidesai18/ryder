@@ -39,8 +39,7 @@
 
             android:id="@+id/action_loginFragment_to_driverLogin"
             app:destination="@id/driverLogin" />
-            android:id="@+id/action_loginFragment_self"
-            app:destination="@id/loginFragment" />
+
 
     </fragment>
     <fragment
@@ -130,9 +129,22 @@
 
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.example.ryder.ui.main.ChatFragment"
+        android:name="com.example.ryderr.ui.main.chat.ChatFragment"
         android:label="chat screen"
         tools:layout="@layout/fragment_chat"/>
+    <fragment
+        android:id="@+id/driverRequestDetailsFragment"
+        android:name="com.example.ryderr.ui.main.driverHome.driverRequestDetails.DriverRequestDetailsFragment"
+        android:label="fragment_driver_request_details"
+        tools:layout="@layout/fragment_driver_request_details" />
+    <fragment
+        android:id="@+id/requestDriverFragment"
+        android:name="com.example.ryderr.ui.main.driver.driverHome.request_Driver.RequestDriverFragment"
+        android:label="RequestDriverFragment" >
+        <action
+            android:id="@+id/action_requestDriverFragment_to_driverRequestDetailsFragment"
+            app:destination="@id/driverRequestDetailsFragment" />
+    </fragment>
 
 
 </navigation>

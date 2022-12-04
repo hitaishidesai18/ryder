@@ -1,29 +1,28 @@
 package com.example.ryderr.ui.main.driver.driverHome.request_Driver;
 
-import androidx.lifecycle.ViewModelProvider;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ryderr.R;
-import com.example.ryderr.models.RequestDriver;
+import com.example.ryderr.models.Request;
 
 import java.util.ArrayList;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class RequestDriverFragment extends Fragment {
 
     private RequestDriverViewModel mViewModel;
     RecyclerView recyclerView;
-    ArrayList<RequestDriver> list;
+    ArrayList<Request> list;
 
     public static RequestDriverFragment newInstance() {
         return new RequestDriverFragment();
@@ -36,15 +35,25 @@ public class RequestDriverFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(RequestDriverViewModel.class);
-        // TODO: Use the ViewModel
 
-        recyclerView = getView().findViewById(R.id.request_driver_recycler);
+        recyclerView = view.findViewById(R.id.request_driver_recycler);
         list = mViewModel.populate();
-        RequestDriverListAdapter adapter = new RequestDriverListAdapter(list, getContext());
-        recyclerView.setAdapter(adapter);
+
+
+        Observer<ArrayList<Request>> observer = new Observer<ArrayList<Request>>() {
+            @Override
+            public void onChanged(ArrayList<Request> requests) {
+                list = requests;
+                RequestDriverListAdapter adapter = new RequestDriverListAdapter(list, getContext());
+                recyclerView.setAdapter(adapter);
+            }
+        };
+
+        mViewModel.loadDriverRequests().observe(getViewLifecycleOwner(), observer);
+
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(getContext()));
     }

@@ -9,6 +9,25 @@ public class Request {
     String from_location;
     String to_location;
     String time;
+    int expected_fare;
+
+    public int getExpected_fare() {
+        return expected_fare;
+    }
+
+    public void setExpected_fare(int expected_fare) {
+        this.expected_fare = expected_fare;
+    }
+
+    public String getFare_text() {
+        return String.valueOf(getExpected_fare());
+    }
+
+    public void setFare_text(String fare_text) {
+        this.fare_text = fare_text;
+    }
+
+    String fare_text;
     ArrayList<String> riders_ids;
     int count_riders;
 
