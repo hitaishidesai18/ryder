@@ -14,6 +14,7 @@
             android:id="@+id/action_splashScreen_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
+
             android:id="@+id/action_splashScreen_to_cabsFragment"
             app:destination="@id/cabsFragment" />
 
@@ -26,6 +27,7 @@
         android:id="@+id/loginFragment"
         android:name="com.example.ryderr.ui.main.login.LoginFragment"
         android:label="login screen"
+
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_liveCabs"
@@ -124,6 +126,13 @@
             android:id="@+id/action_driverProfileFragment_to_splashScreen"
             app:destination="@id/splashScreen" />
     </fragment>
+
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.ryder.ui.main.ChatFragment"
+        android:label="chat screen"
+        tools:layout="@layout/fragment_chat"/>
 
 
 </navigation>
