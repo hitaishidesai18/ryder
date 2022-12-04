@@ -11,6 +11,16 @@ public class Request {
     String time;
     int expected_fare;
 
+    public ArrayList<String> getRiders_names() {
+        return riders_names;
+    }
+
+    public void setRiders_names(ArrayList<String> riders_names) {
+        this.riders_names = riders_names;
+    }
+
+    ArrayList<String> riders_names;
+
     public int getExpected_fare() {
         return expected_fare;
     }

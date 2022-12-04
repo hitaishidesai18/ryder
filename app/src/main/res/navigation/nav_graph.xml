@@ -53,6 +53,15 @@
         <action
             android:id="@+id/action_cabsFrag_to_addRequest"
             app:destination="@id/addRequest" />
+        <action
+            android:id="@+id/action_cabsFrag_to_studentRequestDetailsFragment"
+            app:destination="@id/studentRequestDetailsFragment" >
+            <argument
+                android:name="request_id"
+                app:argType="string"
+                android:defaultValue="0" />
+        </action>
+
     </fragment>
     <fragment
         android:id="@+id/liveLiveCabs"
@@ -144,6 +153,16 @@
         <action
             android:id="@+id/action_requestDriverFragment_to_driverRequestDetailsFragment"
             app:destination="@id/driverRequestDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentRequestDetailsFragment"
+        android:name="com.example.ryderr.ui.main.student.studentRequestDetails.StudentRequestDetailsFragment"
+        android:label="fragment_student_request_details"
+        tools:layout="@layout/fragment_student_request_details" >
+        <argument
+            android:name="request_id"
+            app:argType="string"
+            android:defaultValue="0" />
     </fragment>
 
 
