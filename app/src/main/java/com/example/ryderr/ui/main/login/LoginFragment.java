@@ -171,7 +171,12 @@ public class LoginFragment extends Fragment {
                         }else{
                                 Toast.makeText(getContext(), "welcome "+name, Toast.LENGTH_SHORT).show();
                         }
-                        Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_liveCabs);
+                        if(email.endsWith("hyderabad.bits-pilani.ac.in")){
+                            Navigation.findNavController(mView).navigate(R.id.action_loginFragment_to_liveCabs);
+                        }else{
+                            Toast.makeText(getContext(), "Please use BITS mail!", Toast.LENGTH_SHORT).show();
+                        }
+
 
                     }
                 });
