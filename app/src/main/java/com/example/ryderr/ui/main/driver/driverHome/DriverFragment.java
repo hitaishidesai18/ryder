@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.driverHome;
+package com.example.ryderr.ui.main.driver.driverHome;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ryderr.R;
-import com.example.ryderr.ui.main.driverHome.request_Driver.RequestDriverFragment;
-import com.example.ryderr.ui.main.driverHome.upcoming.UpcomingFragment;
+import com.example.ryderr.ui.main.driver.driverHome.request_Driver.RequestDriverFragment;
+import com.example.ryderr.ui.main.driver.driverHome.upcoming.UpcomingFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -19,8 +19,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DriverFragment extends Fragment {
 
@@ -50,6 +52,12 @@ public class DriverFragment extends Fragment {
 
         mViewModel = new ViewModelProvider(this).get(DriverViewModel.class);
         // TODO: Use the ViewModel
+
+        CircleImageView driverAvatar = view.findViewById(R.id.driver_avatar);
+        driverAvatar.setOnClickListener(view1 -> {
+            Navigation.findNavController(view).navigate(R.id.action_driverFragment_to_driverProfileFragment);
+
+        });
         titles.add("Upcoming Cabs");
         titles.add("Requests");
         tabLayout = getView().findViewById(R.id.driver_tab_layout);

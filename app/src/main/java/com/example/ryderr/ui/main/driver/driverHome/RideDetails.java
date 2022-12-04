@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.driverHome;
+package com.example.ryderr.ui.main.driver.driverHome;
 
 import android.os.Bundle;
 

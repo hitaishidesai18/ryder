@@ -11,12 +11,29 @@ public class LiveCab {
 
 
     String live_cab_id;
+
+    public String getDriver_id() {
+        return driver_id;
+    }
+
+    public void setDriver_id(String driver_id) {
+        this.driver_id = driver_id;
+    }
+
     String driver_id;
 
     String driver_name;
     String vehicle_number;
     String vehicle_type;
     int capacity;
+
+    public boolean isLive() {
+        return live;
+    }
+
+    public void setLive(boolean live) {
+        this.live = live;
+    }
 
     boolean live = false;
 

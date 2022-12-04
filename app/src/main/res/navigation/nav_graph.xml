@@ -109,8 +109,21 @@
 
     <fragment
         android:id="@+id/driverFragment"
-        android:name="com.example.ryderr.ui.main.driverHome.DriverFragment"
-        android:label="DriverFragment" />
+        android:name="com.example.ryderr.ui.main.driver.driverHome.DriverFragment"
+        android:label="DriverFragment" >
+        <action
+            android:id="@+id/action_driverFragment_to_driverProfileFragment"
+            app:destination="@id/driverProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverProfileFragment"
+        android:name="com.example.ryderr.ui.main.driver.DriverProfileFragment"
+        android:label="fragment_driver_profile"
+        tools:layout="@layout/fragment_driver_profile" >
+        <action
+            android:id="@+id/action_driverProfileFragment_to_splashScreen"
+            app:destination="@id/splashScreen" />
+    </fragment>
 
 
 </navigation>

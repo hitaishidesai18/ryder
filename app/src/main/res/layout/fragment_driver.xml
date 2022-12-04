@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.cabs.DriverFragment">
+    tools:context=".ui.main.driver.driverHome.DriverFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/driver_avatar"

@@ -129,7 +129,7 @@ public class LiveCabsViewModel extends ViewModel {
 
         ArrayList<LiveCab> liveLiveCabs = new ArrayList<>();
         db.collection("cabs")
-                .whereEqualTo("live", true)
+           //     .whereEqualTo("live", true)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
