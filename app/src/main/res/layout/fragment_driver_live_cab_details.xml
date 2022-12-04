@@ -5,35 +5,32 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.driverHome.driverLiveCabDetails.DriverLiveCabDetailsFragment">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Live Cab Details"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_centerHorizontal="true"
             android:textSize="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="30dp"
-            android:id="@+id/driverLiveCabsDetailsText"/>
+            android:id="@+id/driverLiveCabsDetailsText"
+            android:layout_marginBottom="30dp"/>
         <include
         android:id="@+id/driverLiveCabDetailsCard"
         layout="@layout/livecab_details_card"
-        app:layout_constraintBottom_toBottomOf="@id/endButton"
-        app:layout_constraintTop_toBottomOf="@id/driverLiveCabsDetailsText" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/driverLiveCabsDetailsText"/>
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFa0ee90"
             android:text="End Ride"
             android:id="@+id/endButton"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/driverLiveCabDetailsCard"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_below="@id/driverLiveCabDetailsCard"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
 
 
 </FrameLayout>

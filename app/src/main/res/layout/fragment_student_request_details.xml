@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.student.studentRequestDetails.StudentRequestDetailsFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,25 +17,22 @@
             android:layout_marginTop="30dp"
             android:text="Request Details"
             android:textSize="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+           android:layout_centerHorizontal="true" />
 
         <include
             android:id="@+id/studentRequestDetailsCard"
             layout="@layout/request_details_card"
-            app:layout_constraintBottom_toBottomOf="@id/joinButton"
-            app:layout_constraintTop_toBottomOf="@id/studentRequestDetailsText" />
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/studentRequestDetailsText"
+            android:layout_marginTop="30dp"/>
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFade6d8"
             android:text="Join"
             android:id="@+id/joinButton"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/studentRequestDetailsCard"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_below="@id/studentRequestDetailsCard"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"/>
+    </RelativeLayout>
 </FrameLayout>
