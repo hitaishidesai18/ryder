@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/live_cab_card"
+    android:id="@+id/request_driver_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
@@ -14,50 +15,50 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#5200E5FF"
+        android:background="#4D00C853"
         android:padding="8dp">
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
-            android:id="@+id/request_linearProgressIndicator"
+            android:id="@+id/request_driver_linearProgressIndicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:progress="70"
-            app:indicatorColor="#00B0FF"
+            app:indicatorColor="#00C853"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/request_join_button"
+            app:layout_constraintTop_toBottomOf="@+id/request_accept_button"
             app:trackCornerRadius="20dp"
             app:trackThickness="25dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/request_join_button"
+            android:id="@+id/request_accept_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
-            android:backgroundTint="#00B0FF"
-            android:text="Join"
+            android:backgroundTint="#00C853"
+            android:text="Accept"
             android:textAllCaps="false"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@id/request_text"
+            app:layout_constraintBottom_toBottomOf="@id/request_driver_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:strokeColor="#E91E63" />
 
 
         <TextView
-            android:id="@+id/request_progress_text"
+            android:id="@+id/request_driver_progress_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="7/10"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/request_linearProgressIndicator"
+            app:layout_constraintBottom_toBottomOf="@+id/request_driver_linearProgressIndicator"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/request_linearProgressIndicator" />
+            app:layout_constraintTop_toTopOf="@id/request_driver_linearProgressIndicator" />
 
         <TextView
-            android:id="@+id/request_from_text"
+            android:id="@+id/request_driver_from_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -68,7 +69,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/request_to_text"
+            android:id="@+id/request_driver_to_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -76,10 +77,10 @@
             android:text="To: Parade Grounds"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/request_from_text" />
+            app:layout_constraintTop_toBottomOf="@id/request_driver_from_text" />
 
         <TextView
-            android:id="@+id/request_text"
+            android:id="@+id/request_driver_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -87,10 +88,10 @@
             android:text="Requested By: Aditya"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/request_time_text" />
+            app:layout_constraintTop_toBottomOf="@+id/request_driver_text_time" />
 
         <TextView
-            android:id="@+id/request_time_text"
+            android:id="@+id/request_driver_text_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -98,7 +99,19 @@
             android:text="Departure: 4:00 PM"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/request_to_text" />
+            app:layout_constraintTop_toBottomOf="@id/request_driver_to_text" />
+
+        <TextView
+            android:id="@+id/request_driver_fare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="₹ 1234"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

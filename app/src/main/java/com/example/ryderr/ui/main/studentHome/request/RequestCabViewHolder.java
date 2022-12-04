@@ -4,9 +4,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.ryderr.R;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 public class RequestCabViewHolder extends RecyclerView.ViewHolder{
 

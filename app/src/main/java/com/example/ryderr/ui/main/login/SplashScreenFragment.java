@@ -50,7 +50,7 @@ public class SplashScreenFragment extends Fragment {
 
         model.navigateScreen.observe(getViewLifecycleOwner(), navigateScreenOption -> {
             if(navigateScreenOption==1)
-                Navigation.findNavController(view).navigate(R.id.action_splashScreen_to_loginFragment);
+                Navigation.findNavController(view).navigate(R.id.action_splashScreen_to_driverFragment);
         });
 
 

@@ -16,6 +16,11 @@
         <action
             android:id="@+id/action_splashScreen_to_cabsFragment"
             app:destination="@id/cabsFragment" />
+
+        <action
+            android:id="@+id/action_splashScreen_to_driverFragment"
+            app:destination="@id/driverFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -74,7 +79,9 @@
             app:destination="@id/cabsFragment" />
         <action
             android:id="@+id/action_driverLogin_to_liveCabs"
-            app:destination="@id/liveCabs" />
+
+            app:destination="@id/liveLiveCabs" />
+
 </fragment>
 <fragment
         android:id="@+id/addRequest"
@@ -96,5 +103,11 @@
             app:destination="@id/addRequest" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/driverFragment"
+        android:name="com.example.ryderr.ui.main.driverHome.DriverFragment"
+        android:label="DriverFragment" />
+
 
 </navigation>
