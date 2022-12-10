@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.ryderr.R;
 import com.example.ryderr.models.Request;
 import com.example.ryderr.ui.main.student.studentHome.request.RequestViewModel;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FieldValue;
@@ -70,6 +71,7 @@ public class StudentRequestDetailsFragment extends Fragment {
                 time = (TextView)view.findViewById(R.id.time);
                 capacity = (TextView)view.findViewById(R.id.capacity);
                 joinBtn = (MaterialButton)view.findViewById(R.id.joinButton);
+                MaterialButton chatBtn = view.findViewById(R.id.chatStudentReqBtn);
               //  TextView currentRidersCount = view.findViewById(R.id.riders_count);
 
                 from.setText(requestObj.getFrom_location());
@@ -88,13 +90,27 @@ public class StudentRequestDetailsFragment extends Fragment {
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, riders);
                 ridersListView.setAdapter(arrayAdapter);
 
+                chatBtn.setOnClickListener(view1 -> {
+                    String requestId = requestObj.getRequest_id();
+                    StudentRequestDetailsFragmentDirections.ActionStudentRequestDetailsFragmentToChatFragment action = StudentRequestDetailsFragmentDirections.actionStudentRequestDetailsFragmentToChatFragment();
+                    action.setGroupId(requestId);
+                    Navigation.findNavController(view).navigate(action);
+
+                });
 
 
                 joinBtn.setOnClickListener(view1 ->{
                     String uid = FirebaseAuth.getInstance().getUid();
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    db.collection("requests").document(requestObj.getRequest_id()).update("riders_ids", FieldValue.arrayUnion(uid));
-                    Navigation.findNavController(view).navigate(R.id.action_studentRequestDetailsFragment_to_cabsFragment);
+                    db.collection("requests").document(requestObj.getRequest_id()).update("riders_ids", FieldValue.arrayUnion(uid))
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                  joinBtn.setVisibility(View.GONE);
+                                  chatBtn.setVisibility(View.VISIBLE);
+                                }
+                            });
+                   // Navigation.findNavController(view).navigate(R.id.action_studentRequestDetailsFragment_to_cabsFragment);
                 });
             }
         };

@@ -157,7 +157,12 @@
         android:id="@+id/chatFragment"
         android:name="com.example.ryderr.ui.main.chat.ChatFragment"
         android:label="chat screen"
-        tools:layout="@layout/fragment_chat"/>
+        tools:layout="@layout/fragment_chat">
+        <argument
+            android:name="group_id"
+            app:argType="string"
+            android:defaultValue="0"/>
+    </fragment>
 
     <fragment
         android:id="@+id/requestDriverFragment"
@@ -179,6 +184,15 @@
         <action
             android:id="@+id/action_studentRequestDetailsFragment_to_cabsFragment"
             app:destination="@id/cabsFragment" />
+        <action
+            android:id="@+id/action_studentRequestDetailsFragment_to_chatFragment"
+            app:destination="@id/chatFragment" >
+        <argument
+            android:name="group_id"
+            app:argType="string"
+            android:defaultValue="0" />
+        </action>
+
     </fragment>
     <fragment
         android:id="@+id/driverRequestDetailsFragment"

@@ -1,6 +1,16 @@
 package com.example.ryderr.ui.main.chat;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
+
+import com.example.ryderr.R;
+
+import java.util.Calendar;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,19 +18,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
-
-
-import com.example.ryderr.R;
-
-
-import java.util.Calendar;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -49,15 +46,18 @@ public class ChatFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final RecyclerView msgRecyclerView = (RecyclerView)view.findViewById(R.id.chat_recycler_view);
-        final Observer<List<ChatMessage>> chatObserver = new Observer<List<ChatMessage>>() {
+
+        String groupId = ChatFragmentArgs.fromBundle(getArguments()).getGroupId();
+
+        RecyclerView msgRecyclerView = (RecyclerView)view.findViewById(R.id.chat_recycler_view);
+        Observer<List<ChatMessage>> chatObserver = new Observer<List<ChatMessage>>() {
             @Override
             public void onChanged(List<ChatMessage> chatMessages) {
-                final ChatAdapter chatAdapter = new ChatAdapter(chatMessages);
+                ChatAdapter chatAdapter = new ChatAdapter(chatMessages);
                 msgRecyclerView.setAdapter(chatAdapter);
             }
         };
-        chatViewModel.getmChatMessages().observe(getViewLifecycleOwner(), chatObserver);
+        chatViewModel.getmChatMessages(groupId).observe(getViewLifecycleOwner(), chatObserver);
 
         final EditText msgInputText = (EditText)view.findViewById(R.id.chat_input_msg);
         ImageButton sendBtn = (ImageButton)view.findViewById(R.id.chat_send_msg);
@@ -67,7 +67,8 @@ public class ChatFragment extends Fragment {
                                            String msgContent = msgInputText.getText().toString();
                                            String curTime = Calendar.getInstance().getTime().toString();
                                            ChatMessage chatMessage = new ChatMessage(msgContent, curTime);
-                                           chatViewModel.sendMessage(chatMessage);
+                                           msgInputText.setText("");
+                                           chatViewModel.sendMessage(groupId, chatMessage);
                                        }
                                    });
 
