@@ -1,9 +1,11 @@
 package com.example.ryderr.ui.main.chat;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.ryderr.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -15,7 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
-    private List<ChatMessage> msgList;
+    List<ChatMessage> msgList;
+    Context mContext;
 
     public ChatAdapter(List<ChatMessage> msgList){
         this.msgList = msgList;
@@ -23,6 +26,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
     @NonNull
     @Override
     public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        mContext = parent.getContext();
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_message_view, parent, false);
         return new ChatViewHolder(view);
 
@@ -37,6 +41,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
         boolean sentMessage = Objects.equals(cur_msg.getUserId(),
                 FirebaseAuth.getInstance().getUid());
 
+        Toast.makeText(mContext,cur_msg.getMsgText(),Toast.LENGTH_SHORT).show();
         if(!sentMessage){
             holder.msgLayoutL.setVisibility(LinearLayout.VISIBLE);
             holder.msgTextL.setText(text);

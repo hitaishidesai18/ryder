@@ -139,6 +139,14 @@
                 android:defaultValue="0" />
         </action>
         <action
+            android:id="@+id/action_driverFrag_to_driverLiveCabDetailsFragment"
+            app:destination="@id/driverLiveCabDetailsFragment" >
+            <argument
+                android:name="cab_id"
+                app:argType="string"
+                android:defaultValue="0" />
+        </action>
+        <action
             android:id="@+id/action_driverFragment_to_driverProfileFragment"
             app:destination="@id/driverProfileFragment" />
     </fragment>
@@ -196,7 +204,7 @@
     </fragment>
     <fragment
         android:id="@+id/driverRequestDetailsFragment"
-        android:name="com.example.ryderr.ui.main.driver.driverHome.driverRequestDetails.DriverRequestDetailsFragment"
+        android:name="com.example.ryderr.ui.main.driver.driverRequestDetails.DriverRequestDetailsFragment"
         android:label="fragment_driver_request_details"
         tools:layout="@layout/fragment_driver_request_details" >
         <argument
@@ -219,6 +227,17 @@
         <action
             android:id="@+id/action_studentCabDetailsFragment_to_cabsFragment"
             app:destination="@id/cabsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverLiveCabDetailsFragment"
+        android:name="com.example.ryderr.ui.main.driver.driverLiveCabDetails.DriverLiveCabDetailsFragment"
+        android:label="fragment_driver_live_cab_details"
+        tools:layout="@layout/fragment_driver_live_cab_details">
+            <argument
+                android:name="cab_id"
+                app:argType="string"
+                android:defaultValue="0" />
+
     </fragment>
 
 

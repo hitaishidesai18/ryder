@@ -1,11 +1,6 @@
-package com.example.ryderr.ui.main.driverHome.driverLiveCabDetails;
+package com.example.ryderr.ui.main.driver.driverLiveCabDetails;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +10,20 @@ import android.widget.TextView;
 
 import com.example.ryderr.R;
 import com.example.ryderr.models.LiveCab;
+import com.example.ryderr.ui.main.driver.driverHome.upcoming.UpcomingViewModel;
 import com.google.android.material.button.MaterialButton;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 
 public class DriverLiveCabDetailsFragment extends Fragment {
     private LiveCab liveCabOb;
     private TextView fare, from, to, vehicle, vehicleNo, time, capacity, driver;
     private MaterialButton endBtn;
     private ListView ridersList;
+    UpcomingViewModel mViewModel;
     public DriverLiveCabDetailsFragment() {
         // Required empty public constructor
     }
@@ -29,6 +31,7 @@ public class DriverLiveCabDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         liveCabOb = new LiveCab();
+        mViewModel = new UpcomingViewModel();
         super.onCreate(savedInstanceState);
     }
 
@@ -41,6 +44,8 @@ public class DriverLiveCabDetailsFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        String cabId = DriverLiveCabDetailsFragmentArgs.fromBundle(getArguments()).getCabId();
+
         fare = (TextView)view.findViewById(R.id.estimatedFare_livecabdetails);
         from = (TextView)view.findViewById(R.id.from_livecabdetails);
         to = (TextView)view.findViewById(R.id.to_livecabdetails);
@@ -50,18 +55,29 @@ public class DriverLiveCabDetailsFragment extends Fragment {
         capacity = (TextView)view.findViewById(R.id.capacity_livecabdetails);
         driver = (TextView)view.findViewById(R.id.driver_livecabdetails);
         endBtn = (MaterialButton)view.findViewById(R.id.endButton);
-        from.setText(liveCabOb.getFrom_location());
-        fare.setText(liveCabOb.getFare());
-        to.setText(liveCabOb.getTo_location());
-        vehicle.setText(liveCabOb.getVehicle_type());
-        vehicleNo.setText(liveCabOb.getVehicle_number());
-        time.setText(liveCabOb.getDeparture_time());
-        capacity.setText(liveCabOb.getCapacity());
-        driver.setText(liveCabOb.getDriver_name());
 
-        ridersList = (ListView)view.findViewById(R.id.ridersList_livecabdetails);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, liveCabOb.getDisplay());
-        ridersList.setAdapter(arrayAdapter);
+        Observer<LiveCab> observer = new Observer<LiveCab>() {
+            @Override
+            public void onChanged(LiveCab liveCab) {
+
+                liveCabOb = liveCab;
+                from.setText(liveCabOb.getFrom_location());
+                fare.setText(liveCabOb.getFareText());
+                to.setText(liveCabOb.getTo_location());
+                vehicle.setText(liveCabOb.getVehicle_type());
+                vehicleNo.setText(liveCabOb.getVehicle_number());
+                time.setText(liveCabOb.getDeparture_time());
+                capacity.setText(String.valueOf(liveCabOb.getCapacity()));
+                driver.setText(liveCabOb.getDriver_name());
+
+                ridersList = (ListView)view.findViewById(R.id.ridersList_livecabdetails);
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, liveCabOb.getDisplay());
+                ridersList.setAdapter(arrayAdapter);
+            }
+        };
+        mViewModel.getDriverLiveCabDetails(cabId).observe(getViewLifecycleOwner(), observer);
+
+
         endBtn.setOnClickListener(view1 -> {
 
         });

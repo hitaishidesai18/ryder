@@ -1,4 +1,4 @@
-package com.example.ryderr.ui.main.driver.driverHome.driverRequestDetails;
+package com.example.ryderr.ui.main.driver.driverRequestDetails;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

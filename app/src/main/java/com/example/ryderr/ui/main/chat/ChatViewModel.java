@@ -81,6 +81,6 @@ public class ChatViewModel extends ViewModel {
     public void sendMessage(String groupId, ChatMessage chatMessage){
         //TODO
         db.collection("groups").document(groupId).collection(groupId).add(chatMessage);
-
+        getmChatMessages(groupId);
     }
 }
