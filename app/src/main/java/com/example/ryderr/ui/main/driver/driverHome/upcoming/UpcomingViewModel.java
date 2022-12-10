@@ -48,7 +48,7 @@ public class UpcomingViewModel extends ViewModel {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 LiveCab liveCab = document.toObject(LiveCab.class);
-                                if(Objects.equals(liveCab.getDriver_id(), driverId))
+                                if(Objects.equals(liveCab.getDriver_id(), driverId) && liveCab.isLive())
                                     list.add(liveCab);
 
                             }
@@ -106,6 +106,11 @@ public class UpcomingViewModel extends ViewModel {
                 });
 
         return driverLiveCabDetails;
+    }
+
+    public void endRide(String cabId){
+        db.collection("cabs").document(cabId).update("live", false);
+
     }
 
 

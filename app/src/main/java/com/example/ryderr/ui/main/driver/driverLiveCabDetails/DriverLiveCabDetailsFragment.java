@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.navigation.Navigation;
 
 public class DriverLiveCabDetailsFragment extends Fragment {
     private LiveCab liveCabOb;
@@ -79,6 +80,8 @@ public class DriverLiveCabDetailsFragment extends Fragment {
 
 
         endBtn.setOnClickListener(view1 -> {
+            mViewModel.endRide(cabId);
+            Navigation.findNavController(view).navigate(R.id.action_driverLiveCabDetailsFragment_to_driverFragment);
 
         });
         super.onViewCreated(view, savedInstanceState);

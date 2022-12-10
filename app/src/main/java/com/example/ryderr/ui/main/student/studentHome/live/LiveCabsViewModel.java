@@ -48,7 +48,8 @@ public class LiveCabsViewModel extends ViewModel {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 LiveCab liveCab = document.toObject(LiveCab.class);
-                                liveLiveCabs.add(liveCab);
+                                if(liveCab.isLive())
+                                    liveLiveCabs.add(liveCab);
                             }
                             studentLiveCabs.setValue(liveLiveCabs);
                         } else {
