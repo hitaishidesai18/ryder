@@ -6,6 +6,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class LiveCab {
 
@@ -24,6 +25,15 @@ public class LiveCab {
 
     String driver_name;
     String vehicle_number;
+
+    public String getVehicle_type() {
+        return vehicle_type;
+    }
+
+    public void setVehicle_type(String vehicle_type) {
+        this.vehicle_type = vehicle_type;
+    }
+
     String vehicle_type;
     int capacity;
 
@@ -45,14 +55,6 @@ public class LiveCab {
     ArrayList<String> riders_ids;
     int count_riders;
 
-    public String getVehicle_type() {
-        return vehicle_type;
-    }
-
-    public void setVehicle_type(String vehicle_type) {
-        this.vehicle_type = vehicle_type;
-    }
-
     public ArrayList<String> getRiders_ids() {
         return riders_ids;
     }
@@ -60,6 +62,26 @@ public class LiveCab {
     public void setRiders_ids(ArrayList<String> riders_ids) {
         this.riders_ids = riders_ids;
     }
+
+    public ArrayList<String> getDisplay() {
+        ArrayList<String> rider = riders_ids;
+        double riderFare = fare/count_riders;
+        display = new ArrayList<String>();
+        Iterator itr = rider.iterator();
+        while(itr.hasNext()){
+            display.add(itr.next().toString()+"\t \t" + riderFare);
+        }
+        return display;
+    }
+
+    public void setDisplay(ArrayList<String> display) {
+
+        this.display = display;
+    }
+
+    ArrayList<String> display;
+
+
 
     public LiveCab(String cab_id, String driver_id, boolean live, String from_location,
             String to_location, String departure_time, int fare,
