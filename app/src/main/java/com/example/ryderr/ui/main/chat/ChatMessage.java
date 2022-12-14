@@ -3,7 +3,6 @@ package com.example.ryderr.ui.main.chat;
 public class ChatMessage {
     private String msgText;
     private String msgTime;
-
     public ChatMessage() {
     }
 

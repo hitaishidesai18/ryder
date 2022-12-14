@@ -20,21 +20,22 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatViewHolder> {
     List<ChatMessage> msgList;
     Context mContext;
 
-    public ChatAdapter(List<ChatMessage> msgList){
+    public ChatAdapter(Context context, List<ChatMessage> msgList){
+        mContext = context;
         this.msgList = msgList;
     }
     @NonNull
     @Override
     public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_message_view, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.chat_message_view, parent, false);
         return new ChatViewHolder(view);
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
-        ChatMessage cur_msg = this.msgList.get(position);
+        ChatMessage cur_msg = (ChatMessage) this.msgList.get(position);
         String text = cur_msg.getMsgText();
         String time = cur_msg.getMsgTime();
         String type = cur_msg.getMsgType();
